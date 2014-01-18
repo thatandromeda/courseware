@@ -1,0 +1,39 @@
+/* colors: http://www.uc.wisc.edu/brand/web/colors.php */
+
+a:link, a:visited, a:hover, a:active {
+  color: #ac0809;
+}
+
+#forkme_banner {
+  background-color: #6E6A5B;
+}
+
+ul.bibliography {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+ul.bibliography li {
+  padding: 1em 0;
+}
+
+
+.week h4 {
+  background-color: #990000;
+  color: white;
+  -webkit-box-shadow: 0 0 10px #000000;
+     -moz-box-shadow: 0 0 10px #000000;
+          box-shadow: 0 0 10px #000000;
+  margin: auto -40px;
+  padding: .5em 40px;
+}
+
+.week p {
+  padding-left: 20px;
+}
+
+.week ul li {
+  list-style-position: outside;
+  padding: .25em 0;
+  margin-left: 20px;
+}
