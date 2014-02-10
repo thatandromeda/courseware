@@ -1,0 +1,20 @@
+h1, h2 {
+  color: #b70101;
+  font-family: serif;
+}
+
+.banner-grey {
+  background: #e8e4d8;
+}
+
+#main-title {
+  border: solid #b70101;
+  border-width: .25em 0;
+  color: green;
+  margin: 2em;
+  padding: 1em;
+}
+
+body {
+  font-family: "PT Sans", sans;
+}
