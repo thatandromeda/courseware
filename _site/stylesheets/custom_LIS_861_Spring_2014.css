@@ -58,7 +58,8 @@ ul.bibliography {
 }
 
 ul.bibliography li {
-  padding: 1em 0;
+  padding: 1em 0 1em 2em;
+  text-indent: -2em; /* hanging indent, counterbalanced by left padding */
 }
 
 ul.bibliography_small li {
