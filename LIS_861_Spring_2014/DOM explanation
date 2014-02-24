@@ -1,0 +1,40 @@
+# What is the DOM?
+
+The _document object model_, or DOM, is quite literally a _model_ of your HTML
+document and the objects inside it - a representation built by the browser.
+
+The DOM is important because the browser and other programs (like Javascript)
+don't interact with your HTML directly - they interact with the DOM.  The
+browser needs to understand what your HTML represents in order to display it to
+your users.  Javascript needs to be able to find objects on the page and do stuff 
+to them.  The HTML file you write doesn't change when it's displayed to users or 
+when they interact with it, but the DOM can change.
+
+Conceptually, the DOM looks like a tree.  It's the same kind of hierarchical
+organization you've probably seen outlining a paper, or organizing subject
+headings.  Here's a drawing of the DOM of the html basics file I've been using
+for screencasts.  Well, part of it - I left out some elements so it wouldn't get 
+too cluttered:
+
+[HTML basics partial DOM image]
+
+The DOM is the exact same hierarchical structure you see in your developer tools:
+
+[HTML basics dev tools DOM]
+
+(Need a refresher on developer tools? Here you go: https://vimeo.com/84643016 )
+
+This is part of why we use developer tools instead of View Source, by the way. 
+View Source shows the HTML as it existed when you loaded the page, but it doesn't
+reflect any changes due to scripts since then, so it may not have much in common
+with the page you actually see in your browser.  (Another big reason is that
+the hierarchical organization of the DOM makes it _much_ easier to find and
+examine specific objects on the page.)
+
+Be aware that this is the short version. There is a LOT more information out there
+about the DOM.  Most of it may feel too technical right now, which is why I've
+written a short version.  However, if you write a lot of Javascript, you'll need to 
+have a more nuanced understanding of the DOM, especially because you'll need to 
+fix bugs that rest in DOM properties, or in differences between what you think the 
+current state of the DOM is and what it actually is.  If you'd like to learn
+more, Google will bring you a ton of useful stuff.
