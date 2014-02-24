@@ -40,7 +40,7 @@ title: UW LIS 861 &mdash; Information Architecture (Spring 2014)
 
 {% for post in site.posts reversed %}
   <div class="week">
-    <h4 data-toggle="collapse" data-target="#collapse{{ forloop.index }}">{{ post.title }}</h4>
+    <a name="anchor{{ forloop.index }}"></a><h4 data-toggle="collapse" data-target="#collapse{{ forloop.index }}">{{ post.title }}</h4>
     <div id="collapse{{ forloop.index }}" class="collapse in">
       {{ post.content }}
     </div>
