@@ -39,9 +39,9 @@ title: UW LIS 861 &mdash; Information Architecture (Spring 2014)
 <h3>Week by Week</h3>
 
 {% for post in site.posts reversed %}
-  <div class="week">
-    <a name="anchor{{ forloop.index }}"></a><h4 class="week_header">{{ post.title }} <span class="caret caret-up hidden">&#9660;&nbsp;</span><span class="caret hidden">&#9650;&nbsp;</span></h4>
-    <div>
+  <div class="week" id="week{{ forloop.index }}">
+    <a name="anchor{{ forloop.index }}"></a><h4 class="week_header"><span class="caret caret-up hidden">&#9660;&nbsp;</span><span class="caret hidden">&#9650;&nbsp;</span>{{ post.title }}</h4>
+    <div class="weekly_content">
       {{ post.content }}
     </div>
   </div>
@@ -72,9 +72,22 @@ title: UW LIS 861 &mdash; Information Architecture (Spring 2014)
            is expanded and un-caret-ed; users who have JS will get the
            streamlined, interactive version on document ready.
         */
-        $('week div').toggle();
-        $('week h4 span.caret-up').removeClass('hidden');
+        $('.week div').toggle();
+        $('.week h4 span.caret-up').removeClass('hidden');
         
+        /*
+          Determine the current week by subtracting the starting date from
+          today. This returns a value in milliseconds, so convert that to weeks.
+          Use that to un-hide this week's content.
+        */
+        var today = new Date();
+        var startDate = new Date(2014, 0, 20);
+        var courseMilliseconds = today - startDate;
+        var millisecondsPerWeek = 604800000;
+        var currentWeek = Math.ceil(courseMilliseconds/millisecondsPerWeek);
+        $('#week' + currentWeek + ' div.weekly_content').toggle();
+        $('#week' + currentWeek + ' span.caret').toggleClass('hidden');
+
         $('h4.week_header').on("click", function() {
           $(this).siblings('div').slideToggle();
           $(this).children('span').toggleClass('hidden');
