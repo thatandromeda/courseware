@@ -87,6 +87,14 @@ ul.bibliography_small li {
   margin-left: 20px;
 }
 
+.caret {
+  float:right;
+}
+
+.caret.hidden {
+  display: none;
+}
+
 /* Table */
 table {
   width: 100%;

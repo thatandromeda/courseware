@@ -40,8 +40,8 @@ title: UW LIS 861 &mdash; Information Architecture (Spring 2014)
 
 {% for post in site.posts reversed %}
   <div class="week">
-    <a name="anchor{{ forloop.index }}"></a><h4 data-toggle="collapse" data-target="#collapse{{ forloop.index }}">{{ post.title }}</h4>
-    <div id="collapse{{ forloop.index }}" class="collapse in">
+    <a name="anchor{{ forloop.index }}"></a><h4 class="week_header">{{ post.title }} <span class="caret caret-up hidden">&#9660;&nbsp;</span><span class="caret hidden">&#9650;&nbsp;</span></h4>
+    <div>
       {{ post.content }}
     </div>
   </div>
@@ -62,5 +62,24 @@ title: UW LIS 861 &mdash; Information Architecture (Spring 2014)
       </footer>
     </div>
 
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        /* Non-js users should see everything fully expanded by default,
+           and shouldn't see carets (since those would indicate actions they
+           aren't able to perform). Therefore the default version of the page
+           is expanded and un-caret-ed; users who have JS will get the
+           streamlined, interactive version on document ready.
+        */
+        $('week div').toggle();
+        $('week h4 span.caret-up').removeClass('hidden');
+        
+        $('h4.week_header').on("click", function() {
+          $(this).siblings('div').slideToggle();
+          $(this).children('span').toggleClass('hidden');
+        });
+      });
+    </script>
   </body>
 </html>
