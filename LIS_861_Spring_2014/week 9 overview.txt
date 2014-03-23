@@ -1,0 +1,45 @@
+Library web sites suck.
+
+No, really. Ask anyone who does UX in libraries. They'll tell you.
+(They'll cringe.)
+
+My personal theory?  Librarians often think in *nouns* - information. We love
+information! We want to give people information!  We want to give people ALL
+the information.
+
+But web site users act in verbs. What can I do here? How do I do it?
+
+They want it to be obvious, or they get frustrated and go away and don't
+discover the cool nouns *and* verbs they can do at your library.
+
+[go read this. i'll wait. http://bradcolbow.com/archive/view/the_brads_why_drm_doesnt_work/?p=205]
+
+This week we're going to read, in Krug, about some of the basics of the
+usability perspective. What do usability experts see when they look at a web
+site? Why do they see it?
+
+And we're going to read about how this way of thinking applies to library web
+sites -- or could.  Along the way there are some hints of why it doesn't.
+Keep an eye out for themes we'll see more of later in the course: accessibility,
+project management and stakeholders and buy-in.
+
+I have a couple pieces of paper taped to the wall behind my desk, to remind
+myself of the important things when I write code.
+
+[desk photo]
+
+You can substitute "patrons" for "clients" -- it works just as well.  What
+problems does your web site solve for your patrons? What do they show up needing
+to do, and how do you make it clear, even delightful, how they do it? Can you
+solve problems they didn't even know they had?
+
+Your library web site has a ton of features.  
+
+[http://i.imgur.com/4DrkaJP.jpg]
+
+You do a lot of cool stuff.  But telling your patrons lots of facts about it? 
+Doesn't solve their problems. Getting out of the way of their *doing stuff* lets 
+them solve their own problems, through you.
+
+The two-sentence takeaway?  Your web site shouldn't be about your library's nouns.
+It should be about your patrons' verbs.
