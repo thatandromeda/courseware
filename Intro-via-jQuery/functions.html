@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 101 Template</title>
+
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/custom.css" type="text/css">
+
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans|Enriqueta:700' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <!-- begin header -->
+    <div class="jumbotron bg-purple">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-offset-1 col-md-10">
+            <h1>
+              Introduction to Programming Concepts via jQuery
+            </h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end header -->
+
+    <!-- begin main container div -->
+    <div class="container-fluid">
+      <!-- begin main row div -->
+      <div class="row">
+        <!-- begin main content div -->
+        <div class="col-md-10 col-md-offset-1">
+          <!-- begin intro section div -->
+          <div>
+            <h2>Functions!</h2>
+        
+            <p>
+              A function is a bit of code that takes some input and produces
+              some output.  You can get really complicated with functions,
+              but at heart, that's all they are.
+            </p>
+        
+            <p>
+              Functions are the best, because they let you turn computers
+              into <em>your personal army of robot servants</em>.
+            </p>
+        
+            <div class="row">
+              <div class="col-md-3">
+                <img src="img/robot.jpg" class="img-responsive img-circle" />
+              </div>
+              <div class="col-md-3">
+                <img src="img/robot.jpg" class="img-responsive img-circle" />
+              </div>
+              <div class="col-md-3">
+                <img src="img/robot.jpg" class="img-responsive img-circle" />
+              </div>
+              <div class="col-md-3">
+                <img src="img/robot.jpg" class="img-responsive img-circle" />
+              </div>
+            </div>
+        
+            <p>
+              <em>Photo by legoalbert – <a href="http://flic.kr/p/evHiGW">http://flic.kr/p/evHiGW</a> – CC BY</em>
+            </p>
+        
+            <p>
+              How? Because you write your function <em>once</em>, and then the 
+              computer can execute it wherever and whenever you need, as often 
+              as needed -- even millions of times in a row. And unlike humans,
+              your robot servants are blindingly fast and perfectly accurate.
+            </p>
+        
+            <p>
+              Bonus: you can debug your function once, and it works everywhere. 
+              Yay!
+            </p>
+        
+            <p>
+              Let's have a look.
+            </p>
+          </div>
+          <!-- end intro section div -->
+        
+          <!-- begin example function div -->
+          <div>
+            <h3>An example function</h3>
+        
+            <p>
+              Remember this?
+            </p>
+
+            <p>
+              <code class="code-big">
+                  $j("#yellow-div").css(<span class="highlight">"background-color", "#7d3c75"</span>);
+              </code>
+            </p>
+        
+            <p>
+              We're going to make it fancier. But first, let's define a
+              term.  <em>Arguments</em> are the inputs to a function (highlighted
+              in purple above).  Arguments give a function information about
+              what it should be doing and how to do it.  What are these
+              arguments telling this function?
+            </p>
+        
+            <p>
+              Some functions require arguments; some don't.  A function may
+              take 1 or 2 or many arguments.  It may have optional arguments.
+              When you write your own functions from scratch, you can 
+              decide what arguments they take, based on what makes sense for
+              the function you're writing.
+            </p>
+        
+            <p>
+              Typically each argument must be of a certain data type. Again,
+              when you write the function, you can define that however you
+              want. You just have to stick to it once it's defined.
+            </p>
+        
+            <div class="well clearfix">
+              <strong>
+                <span class="glyphicon glyphicon-exclamation-sign"></span>
+              </strong>
+              If you're calling a function and it isn't working, proofread to
+              make sure you've supplied the correct number of arguments,
+              in the correct order, of the correct type.  Good documentation
+              will always (not just in jQuery!) tell you what arguments a 
+              function can take.
+            </div>
+        
+            <p>
+              Now, let's make it fancier!
+            </p>
+<pre>
+<code class="code-big">
+  $j("#yellow-trigger").on("click", function() {
+    $j("#yellow-div").css("background-color", "#7d3c75");
+  });
+</code>
+</pre>        
+            <p>
+              What have we here?
+            </p>
+        
+            <p>
+              The inner line we've seen before.  What do you expect it to do?
+            </p>
+        
+            <p>
+              The rest of the code tells us when and how to trigger the
+              inner line.
+            </p>
+        
+            <p>
+              <code>$j("#yellow-trigger")</code> tells us what element
+              to <em>bind</em> our function to.
+            </p>
+        
+            <p>
+              <code>.on(...);</code> is a jQuery function that <em>attaches</em>
+              an <em>event handler</em> to an element.  It takes two arguments:
+            </p>
+        
+            <ul>
+              <li>
+                The <em>event</em>: here, <code>"click"</code>. There are
+                <a href="http://api.jquery.com/category/events/">many other event
+                types</a>.
+              </li>
+              <li>
+                The <em>function</em> that should be called to handle the
+                event. Here, we're writing our own, as signified by
+                <code>function() {...}</code>.
+              </li>
+            </ul>
+
+            <div class="well clearfix">
+              <strong>
+                <span class="glyphicon glyphicon-exclamation-sign"></span>
+              </strong>
+              Yes, the quote marks around the event type matter.
+            </div>
+        
+            <p>
+              And what's all that punctuation doing in the third line? That's
+              the closing } for <code>function() {...}</code> and the closing
+              ); for <code>.on(...);</code>.
+            </p>
+
+            <div class="well clearfix">
+              <strong>
+                <span class="glyphicon glyphicon-exclamation-sign"></span>
+              </strong>
+              Yes, the punctuation matters. If something isn't working, put on 
+              your best cataloger hat and proofread. Anything opened must be
+              closed!
+            </div>
+        
+            <p>
+              Try it!
+            </p>
+
+            <div class="well clearfix">
+              <!-- See the bottom of the page for the script that binds
+                   here. Scripts using jQuery must be placed after we add
+                   jQuery to the page, or they won't work. It's best to put
+                   Javascript at the bottom of the page so that it's the last
+                   thing that loads - makes the parts of the page that humans
+                   can see load first, so the page appears to load faster.
+              -->
+              <button class="btn btn-lg" id="yellow-trigger">
+                Click me!
+              </button>
+          
+              <button id="yellow-div" class="btn btn-lg bg-yellow no-hover pull-right">
+                <span class="purple-text">
+                  I am so very yellow...
+                </span>
+                <span class="yellow-text">
+                  ...or am I?
+                </span>
+              </button>
+            </div>
+
+            <div class="question-time clearfix">
+            </div>
+          </div>
+          <!-- end example function div -->
+      
+          <!-- begin function practice div 1 -->
+          <div>
+            <h3>Your turn</h3>
+      
+            <ol>
+              <li>
+                Write a function that makes the purple div 
+                (<code>#purple-div</code>) in the box below change color when you 
+                click on the purple-trigger button (<code>#purple-trigger</code>).
+              </li>
+              <li>
+                Write a function that makes all the lavender divs 
+                (<code>.lavender-div</code>) in the box below change color when
+                you click on the lavender-trigger button 
+                (<code>#lavender-trigger</code>).
+              </li>
+            </ol>
+      
+            <div class="well clearfix">
+              <button class="btn btn-lg" id="purple-trigger">
+                purple-trigger
+              </button>
+          
+              <button id="purple-div" class="btn btn-lg bg-purple pull-right">
+                purple-div
+              </button>
+            </div>
+
+            <div class="well clearfix">
+              <button class="btn btn-lg" id="lavender-trigger">
+                lavender-trigger
+              </button>
+          
+              <button class="btn btn-lg bg-lavender lavender-div pull-right">
+                lavender-div
+              </button>
+              <button class="btn btn-lg bg-lavender lavender-div pull-right">
+                lavender-div
+              </button>
+              <button class="btn btn-lg bg-lavender lavender-div pull-right">
+                lavender-div
+              </button>
+              <button class="btn btn-lg bg-lavender lavender-div pull-right">
+                lavender-div
+              </button>
+            </div>
+          </div>
+          <!-- end function practice div 1 -->
+
+          <!-- begin functions with conditionals -->
+          <div>
+            <h3>More intelligent robots: functions + if/then</h3>
+
+            <p>
+              Sometimes you want to exercise some judgment, you know?
+            </p>
+          
+            <ul>
+              <li>
+                Mark the book for weeding if (but only if) it hasn't circed in a decade
+              </li>
+              <li>
+                Add an 856 $u if (but only if) you have a URL for the record
+              </li>
+              <li>
+                Display a libguide on a course page if (but only if) you have
+                a relevant one
+              </li>
+            </ul>
+            
+            <p>
+              If you can write a clear enough rule, you can tell your robot 
+              servant to make choices for you.
+            </p>
+            
+            <p>
+              In your own words, what does this rule say?
+            </p>
+<pre>
+<code class="code-big">
+  $j("#conditional-trigger").on("click", function () {
+    if ( $j("#conditional-button-1").html().indexOf("Purple me!") >= 0 ) {
+        $j("#conditional-button-1").css("background-color", "#7d3c75");
+    } else {
+        $j("#conditional-button-2").css("background-color", "#7d3c75");
+    }
+  });
+</code>
+</pre>
+            <p>
+              Once you have your guess <em>and not before</em>, click
+              the conditional trigger:
+            </p>
+
+            <div class="well clearfix">
+              <button class="btn btn-lg" id="conditional-trigger">
+                conditional-trigger
+              </button>
+          
+              <button id="conditional-button-2" class="btn btn-lg bg-green pull-right">
+                conditional-button-2
+              </button>
+
+              <button id="conditional-button-1" class="btn btn-lg bg-green pull-right">
+                conditional-button-1
+              </button>
+            </div>
+            
+            <p>
+              By the way, did you find that function hard to read? I did.
+              We can make it easier to read by splitting up the steps a
+              bit and using a thoughtfully named variable, thusly: 
+            </p>
+<pre>
+<code class="code-big">
+  $j("#conditional-trigger").on("click", function () {
+    var shouldIPurpleIt = $j("#conditional-button-1").html().indexOf("Purple me!");
+
+    if ( shouldIPurpleIt >= 0 ) {
+        $j("#conditional-button-1").css("background-color", "#7d3c75");
+    } else {
+        $j("#conditional-button-2").css("background-color", "#7d3c75");
+    }
+  });
+</code>
+</pre>
+            <div class="question-time clearfix">
+            </div>
+          </div>
+          <!-- end functions with conditionals -->
+
+          <!-- begin practice for functions with conditionals -->
+          <div>
+            <h3>Your turn</h3>
+            <p>
+              As always, decide what you think <em>should</em> happen
+              before you write any code.
+            </p>
+            <ol>
+              <li>
+                Write a function that makes the trigger-1-target div turn 
+                orange, if it contains the word "orange", when you click 
+                trigger-1.
+              </li>
+              <li>
+                Write a function that makes the trigger-2-target div turn 
+                orange, if its background color is #7d3c75 (this page's 
+                purple), when you click trigger-2.
+              </li>
+              <li>
+                Write a function that makes the trigger-3-target div turn 
+                orange, if its background color is #b2b84a (this page's 
+                green), when you click trigger-3.
+              </li>
+            </ol>
+
+            <div class="well clearfix">
+              <button class="btn btn-lg" id="trigger-1">
+                #trigger-1
+              </button>
+          
+              <button id="trigger-1-target" class="btn btn-lg bg-purple pull-right">
+                #trigger-1-target<br />
+                Ceci n'est pas une orange
+              </button>
+            </div>
+
+            <div class="well clearfix">
+              <button class="btn btn-lg" id="trigger-2">
+                #trigger-2
+              </button>
+          
+              <button id="trigger-2-target" class="btn btn-lg bg-purple pull-right">
+                #trigger-2-target<br />
+              </button>
+            </div>
+
+            <div class="well clearfix">
+              <button class="btn btn-lg" id="trigger-3">
+                #trigger-3
+              </button>
+          
+              <button id="trigger-3-target" class="btn btn-lg bg-purple pull-right">
+                #trigger-3-target<br />
+              </button>
+            </div>
+
+            <div class="well clearfix">
+                <strong>
+                  <span class="glyphicon glyphicon-exclamation-sign"></span>
+                </strong>
+                If you're stuck, test smaller components of your function
+                and see if they work.
+                <ul>
+                  <li>
+                    Can you define a variable like shouldIOrangeIt without 
+                    throwing any errors?
+                  </li>
+                  <li>
+                    What happens if you write just the if condition for 
+                    shouldIOrangeIt - does that turn out true or false (and
+                    is that what you expected)?
+                  </li>
+                  <li>
+                    Can you write a line that changes the color of your 
+                    target (without doing an if condition or binding to a 
+                    click event on anything)?
+                  </li>
+                </ul>
+                Testing each line in isolation is much easier than testing
+                the whole thing at once.
+              </div>
+          </div>
+          <!-- end practice functions with conditionals -->
+
+          <!-- begin functions with loops -->
+          <!-- end functions with loops -->
+
+          <!-- begin practice functions with loops -->
+          <!-- end practice functions with loops -->
+
+          <!-- begin functions with loops and conditionals -->
+          <!-- end functions with loops and conditionals -->
+
+          <!-- begin practice functions with loops and conditionals -->
+          <!-- end practice functions with loops and conditionals -->
+
+<!--
+TODO:
+"return" (later)
+
+break down into steps: write signature; do work; optionally
+return something; call the function
+
+* Functions
+  * $j(this)?? highly specialized, but might need it
+  * make sure to show examples that use variables, data types, if/then, loops
+  * then show examples that put several things together
+  * deal with how to trigger them separately - give them the shell at first
+  * pause frequently for questions
+  * have them write their own
+  * THIS is where you have lots of examples, and go back to self-paced
+  * This is where you need the most TAs
+
+MAKE SURE YOU HAVE ALREADY INTRODUCED....
+.css()
+.html()
+-->
+        
+            <div class="well clearfix">
+              <strong>
+                <span class="glyphicon glyphicon-exclamation-sign"></span>
+              </strong>
+              A lot of the challenge, fun, and frustration of programming
+              is figuring out how to write clear enough rules. If a program
+              isn't working like you expect, check:
+              <ul>
+                <li>
+                  Does your rule actually apply to all the cases it needs to?
+                </li>
+                <li>
+                  Does your rule accidentally apply places it shouldn't?
+                </li>
+                <li>
+                  Does your rule have exceptions you need to account for?
+                </li>
+              </ul>
+              Because we're human, we usually don't think of all the
+              edge cases the first time we write programs. As we discover
+              them over time, we make our programs better.
+            </div>
+        </div>
+        <!-- end main content div -->
+      </div>
+      <!-- end main row div -->
+    </div>
+    <!-- end main container div -->
+    
+    <!-- begin footer -->
+    <div id="footer" class="bg-neutral">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <p>
+              <a href="http://andromedayelton.com">Andromeda Yelton</a> <span class="glyphicon glyphicon-star"></span>
+              DLF/Code4Lib DC 2014 <span class="glyphicon glyphicon-star"></span>
+              <a href="https://github.com/thatandromeda/bootstrap-tutorial/tree/gh-pages">Source files</a> 
+              <span class="glyphicon glyphicon-star"></span> 
+              <a href="http://design-seeds.com/index.php/home/entry/color-abstract1">Color scheme</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end footer -->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+      // Yes, I wrote this function so I wouldn't have to copy-paste the
+      // HTML block each time, and so I wouldn't have to worry about errors.
+      // I wouldn't do this on a normal web page: HTML/CSS is faster and
+      // more accessible than JS. But for a course that's actually about JS,
+      // it seemed legit.
+      var $j = jQuery.noConflict();
+
+      $j(document).on("ready", function () {
+        $j(".question-time").each(function () {
+          $j(this).html('<div class="oversized-and-orange clearfix"><span class="glyphicon glyphicon-question-sign pull-left"></span><div class="text pull-left">Question time!</div></div>');
+        });
+      });
+    </script>
+    
+    <script type="text/javascript">
+      var $j = jQuery.noConflict();
+
+      $j("#yellow-trigger").on("click", function() {
+        $j("#yellow-div").css("background-color", "#7d3c75");
+      });
+    </script>
+    
+    <script type="text/javascript">
+      var $j = jQuery.noConflict();
+
+      $j("#conditional-trigger").on("click", function () {
+        if ( $j("#conditional-button-1").html().indexOf("Purple me!") >= 0) {
+            $j("#conditional-button-1").css("background-color", "#7d3c75");
+        } else {
+            $j("#conditional-button-2").css("background-color", "#7d3c75");
+        }
+      });
+    </script>
+    
+  </body>
+</html>
