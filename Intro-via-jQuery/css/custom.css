@@ -130,6 +130,11 @@ strong {
   padding-left: .25em;
 }
 
+.well button.btn {
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
 /* Color blocks
 -------------------------------------------------- */
 

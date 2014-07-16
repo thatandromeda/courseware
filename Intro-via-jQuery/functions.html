@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap 101 Template</title>
+    <title>Intro to Programming: Functions</title>
 
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/custom.css" type="text/css">
@@ -384,12 +384,14 @@
               <li>
                 Write a function that makes the trigger-2-target div turn 
                 orange, if its background color is #7d3c75 (this page's 
-                purple), when you click trigger-2.
+                purple), when you click trigger-2. (If your browser is using
+                rgb instead of hex, check for rgb(125, 60, 117).)
               </li>
               <li>
                 Write a function that makes the trigger-3-target div turn 
                 orange, if its background color is #b2b84a (this page's 
-                green), when you click trigger-3.
+                green), when you click trigger-3. (If your browser is using
+                rgb instead of hex, check for rgb(178, 184, 74).)
               </li>
             </ol>
 
@@ -453,15 +455,675 @@
           <!-- end practice functions with conditionals -->
 
           <!-- begin functions with loops -->
+          <div>
+            <h3>More industrious robots: loops</h3>
+            
+            <p>
+              Using functions in loops is where the real power of
+              programming kicks in.  After all, there are lots of tasks
+              you can do <em>once</em> just as quickly and accurately as a 
+              computer can (and generally faster than you could write the 
+              code!)  But there aren't many things you can do <em>ten
+              thousand times</em> as quickly and accurately as a computer.
+            </p>
+            
+            <div class="row">
+              <div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8">
+                <div class="thumbnail">
+                  <img src="http://imgs.xkcd.com/comics/is_it_worth_the_time.png" alt="xkcd comic about when is it worth spending time to automate a task" class="img-responsive">
+                  <div class="caption">
+                    <p>
+                      <a href="http://xkcd.com/1205/">http://xkcd.com/1205/</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <p>
+              So now let's do something a whole lot of times. What will the
+              following code do?
+            </p>
+
+<pre>
+<code class="code-big">
+  $j("#loop-trigger-1").on("click", function() {
+    $j(".loop-1").each(function() {
+        $j(this).css("background-color", "#7d3c75");
+    });
+  });
+</code>
+</pre>        
+            <div class="well clearfix">
+              <div class="row">
+                <div class="col-md-2">
+                  <button class="btn btn-lg" id="loop-trigger-1">
+                    #loop-trigger-1
+                  </button>
+                </div>
+              
+                <div class="clearfix col-md-10">
+                  <button class="btn btn-lg bg-yellow pull-right loop-1">
+                    .loop-1
+                  </button>
+
+                  <button class="btn btn-lg bg-yellow pull-right loop-1">
+                    .loop-1
+                  </button>
+
+                  <button class="btn btn-lg bg-yellow pull-right loop-1">
+                    .loop-1
+                  </button>
+                  <button class="btn btn-lg bg-yellow pull-right loop-1">
+                    .loop-1
+                  </button>
+
+                  <button class="btn btn-lg bg-yellow pull-right loop-1">
+                    .loop-1
+                  </button>
+
+                  <button class="btn btn-lg bg-yellow pull-right loop-1">
+                    .loop-1
+                  </button>
+
+                  <button class="btn btn-lg bg-yellow pull-right loop-1">
+                    .loop-1
+                  </button>
+
+                  <button class="btn btn-lg bg-yellow pull-right loop-1">
+                    .loop-1
+                  </button>
+
+                  <button class="btn btn-lg bg-yellow pull-right loop-1">
+                    .loop-1
+                  </button>
+
+                  <button class="btn btn-lg bg-yellow pull-right loop-1">
+                    .loop-1
+                  </button>
+
+                  <button class="btn btn-lg bg-yellow pull-right loop-1">
+                    .loop-1
+                  </button>
+
+                  <button class="btn btn-lg bg-yellow pull-right loop-1">
+                    .loop-1
+                  </button>
+
+                  <button class="btn btn-lg bg-yellow pull-right loop-1">
+                    .loop-1
+                  </button>
+
+                  <button class="btn btn-lg bg-yellow pull-right loop-1">
+                    .loop-1
+                  </button>
+
+                  <button class="btn btn-lg bg-yellow pull-right loop-1">
+                    .loop-1
+                  </button>
+
+                  <button class="btn btn-lg bg-yellow pull-right loop-1">
+                    .loop-1
+                  </button>
+
+                  <button class="btn btn-lg bg-yellow pull-right loop-1">
+                    .loop-1
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+            <p>
+              Or...let's try something more useful. What will this do?
+            </p>
+
+<pre>
+<code class="code-big">
+  var resultsDiv = $j("#results-div");
+
+  $j("#loop-trigger-2").on("click", function() {
+    $j(".record-set").each(function() {
+        var titleList = $j(this).html().split(":");
+        var titleName = titleList[1];
+        resultsDiv.append(titleName + '&lt;br /&gt;');
+    });
+  });
+</code>
+</pre>        
+
+            <div class="well clearfix">
+              <div class="row">
+                <div class="col-md-2">
+                  <button class="btn btn-lg" id="loop-trigger-2">
+                    #loop-trigger-2
+                  </button>
+                </div>
+              
+                <div class="clearfix col-md-10">
+                  <button class="btn btn-lg bg-yellow pull-right record-set">
+                    Title: Capital in the Twenty-First Century
+                  </button>
+
+                  <button class="btn btn-lg bg-yellow pull-right record-set">
+                    Title: Lean In
+                  </button>
+
+                  <button class="btn btn-lg bg-yellow pull-right record-set">
+                    Title: How Not to be Wrong
+                  </button>
+                  <button class="btn btn-lg bg-yellow pull-right record-set">
+                    Title: The Goldfinch
+                  </button>
+
+                  <button class="btn btn-lg bg-yellow pull-right record-set">
+                    Title: Gone Girl
+                  </button>
+
+                  <button class="btn btn-lg bg-yellow pull-right record-set">
+                    Title: The Alchemist
+                  </button>
+
+                  <button class="btn btn-lg bg-yellow pull-right record-set">
+                    Title: The Ocean at the End of the Lane
+                  </button>
+
+                  <button class="btn btn-lg bg-yellow pull-right record-set">
+                    Title: Americanah
+                  </button>
+
+                  <button class="btn btn-lg bg-yellow pull-right record-set">
+                    Title: Where'd You Go, Bernadette?
+                  </button>
+
+                  <button class="btn btn-lg bg-yellow pull-right record-set">
+                    Title: A Game of Thrones
+                  </button>
+
+                  <button class="btn btn-lg bg-yellow pull-right record-set">
+                    Title: Orange is the New Black
+                  </button>
+
+                  <button class="btn btn-lg bg-yellow pull-right record-set">
+                    Title: Outliers
+                  </button>
+
+                  <button class="btn btn-lg bg-yellow pull-right record-set">
+                    Title: Quiet
+                  </button>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12" id="results-div">
+                  <hr />
+                  <h4>Results</h4>
+                </div>
+              </div>
+            </div>
+            
+            <p>
+              Imagine this idea with a much larger data set - a spreadsheet
+              or a batch of MARC records. What sorts of things could you do?
+            </p>
+
+            <div class="question-time clearfix">
+            </div>
+            
+          </div>
           <!-- end functions with loops -->
 
           <!-- begin practice functions with loops -->
           <!-- end practice functions with loops -->
 
           <!-- begin functions with loops and conditionals -->
+          <div>
+            <h3>Your very own robot army</h3>
+            <p>
+              Let's put together everything we've learned: functions, 
+              loops, and conditionals.  In other words, let's have
+              super-fast, hardworking robots make judgment calls about
+              All The Things.
+            </p>
+            <p>
+              What will this code do?
+            </p>
+<pre>
+<code class="code-big">
+  $j("#loop-conditional-trigger").on("click", function() {
+    $j(".loop-2").each(function() {
+        var targetColor = $j(this).html();
+        
+        if (targetColor.indexOf('Purple') >= 0) {
+          $j(this).css("background-color", "#7d3c75");
+        } else if (targetColor.indexOf('Orange') >= 0) {
+          $j(this).css("background-color", "#e67747");
+        } else if (targetColor.indexOf('Lavender') >= 0) {
+          $j(this).css("background-color", "#826c9c");
+        }
+    });
+  });
+</code>
+</pre>        
+            
+            <div class="well clearfix">
+              <div class="row">
+                <div class="col-md-4">
+                  <button class="btn btn-lg" id="loop-conditional-trigger">
+                    #loop-conditional-trigger
+                  </button>
+                </div>
+              
+                <div class="clearfix col-md-8">
+                  <button class="btn btn-lg bg-yellow pull-right loop-2">
+                    Purple
+                  </button>
+
+                  <button class="btn btn-lg bg-yellow pull-right loop-2">
+                    Orange
+                  </button>
+
+                  <button class="btn btn-lg bg-yellow pull-right loop-2">
+                    Lavender
+                  </button>
+                  <button class="btn btn-lg bg-yellow pull-right loop-2">
+                    Yellow
+                  </button>
+
+                  <button class="btn btn-lg bg-yellow pull-right loop-2">
+                    Purple
+                  </button>
+
+                  <button class="btn btn-lg bg-yellow pull-right loop-2">
+                    Lavender
+                  </button>
+
+                  <button class="btn btn-lg bg-yellow pull-right loop-2">
+                    Orange
+                  </button>
+
+                  <button class="btn btn-lg bg-yellow pull-right loop-2">
+                    Kittens
+                  </button>
+
+                  <button class="btn btn-lg bg-yellow pull-right loop-2">
+                    Yellow
+                  </button>
+
+                  <button class="btn btn-lg bg-yellow pull-right loop-2">
+                    Purple
+                  </button>
+
+                  <button class="btn btn-lg bg-yellow pull-right loop-2">
+                    Orange
+                  </button>
+
+                  <button class="btn btn-lg bg-yellow pull-right loop-2">
+                    Lavender
+                  </button>
+
+                  <button class="btn btn-lg bg-yellow pull-right loop-2">
+                    Puppies
+                  </button>
+
+                  <button class="btn btn-lg bg-yellow pull-right loop-2">
+                    Yellow
+                  </button>
+
+                  <button class="btn btn-lg bg-yellow pull-right loop-2">
+                    Grey
+                  </button>
+
+                  <button class="btn btn-lg bg-yellow pull-right loop-2">
+                    Purple
+                  </button>
+
+                  <button class="btn btn-lg bg-yellow pull-right loop-2">
+                    Orange
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="question-time clearfix">
+            </div>
+          </div>
           <!-- end functions with loops and conditionals -->
 
           <!-- begin practice functions with loops and conditionals -->
+          <div>
+            <h3>Your turn!</h3>
+            
+            <ol>
+              <li>
+                Write a function that, when you click on #trigger-4, 
+                looks at all the .trigger-4 buttons and, if they're
+                green, turns them purple.
+              </li>
+              <li>
+                Write a function that, when you click on #trigger-5, 
+                looks at all the .trigger-5 buttons and, if they're
+                green, appends their contents to the #trigger-5-results-div.
+              </li>
+              <li>
+                Write a function that, when you click on #trigger-6,
+                loops through the .trigger-6 buttons and produces
+                results that match the #trigger-6-results-div contents.
+                (Step 1: figure out what rule(s) you need to follow to
+                do this!)
+              </li>
+            </ol>
+
+            <!-- begin trigger-4 example-->
+            <div class="well clearfix">
+              <div class="row">
+                <div class="clearfix col-md-2">
+                  <button class="btn btn-lg" id="trigger-4">
+                    #trigger-4
+                  </button>
+                </div>
+          
+                <div class="clearfix col-md-10">
+                  <button class="btn btn-lg bg-orange pull-right trigger-4">
+                    &nbsp;
+                  </button>
+
+                  <button class="btn btn-lg bg-green pull-right trigger-4">
+                    &nbsp;
+                  </button>
+
+                  <button class="btn btn-lg bg-green pull-right trigger-4">
+                    &nbsp;
+                  </button>
+
+                  <button class="btn btn-lg bg-yellow pull-right trigger-4">
+                    &nbsp;
+                  </button>
+
+                  <button class="btn btn-lg bg-orange pull-right trigger-4">
+                    &nbsp;
+                  </button>
+
+                  <button class="btn btn-lg bg-purple pull-right trigger-4">
+                    &nbsp;
+                  </button>
+
+                  <button class="btn btn-lg bg-yellow pull-right trigger-4">
+                    &nbsp;
+                  </button>
+
+                  <button class="btn btn-lg bg-orange pull-right trigger-4">
+                    &nbsp;
+                  </button>
+
+                  <button class="btn btn-lg bg-orange pull-right trigger-4">
+                    &nbsp;
+                  </button>
+
+                  <button class="btn btn-lg bg-green pull-right trigger-4">
+                    &nbsp;
+                  </button>
+
+                  <button class="btn btn-lg bg-yellow pull-right trigger-4">
+                    &nbsp;
+                  </button>
+
+                  <button class="btn btn-lg bg-green pull-right trigger-4">
+                    &nbsp;
+                  </button>
+
+                  <button class="btn btn-lg bg-purple pull-right trigger-4">
+                    &nbsp;
+                  </button>
+
+                  <button class="btn btn-lg bg-orange pull-right trigger-4">
+                    &nbsp;
+                  </button>
+                </div>
+              </div>
+              
+              <div class="row">
+                <div class="col-md-12">
+                  <hr />
+                </div>
+                <div class="col-md-2">
+                  <h4>Desired results</h4>
+                </div>
+                <div class="clearfix col-md-10">
+                  <button class="btn btn-lg bg-orange pull-right trigger-4">
+                    &nbsp;
+                  </button>
+
+                  <button class="btn btn-lg bg-purple pull-right trigger-4">
+                    &nbsp;
+                  </button>
+
+                  <button class="btn btn-lg bg-purple pull-right trigger-4">
+                    &nbsp;
+                  </button>
+
+                  <button class="btn btn-lg bg-yellow pull-right trigger-4">
+                    &nbsp;
+                  </button>
+
+                  <button class="btn btn-lg bg-orange pull-right trigger-4">
+                    &nbsp;
+                  </button>
+
+                  <button class="btn btn-lg bg-purple pull-right trigger-4">
+                    &nbsp;
+                  </button>
+
+                  <button class="btn btn-lg bg-yellow pull-right trigger-4">
+                    &nbsp;
+                  </button>
+
+                  <button class="btn btn-lg bg-orange pull-right trigger-4">
+                    &nbsp;
+                  </button>
+
+                  <button class="btn btn-lg bg-orange pull-right trigger-4">
+                    &nbsp;
+                  </button>
+
+                  <button class="btn btn-lg bg-purple pull-right trigger-4">
+                    &nbsp;
+                  </button>
+
+                  <button class="btn btn-lg bg-yellow pull-right trigger-4">
+                    &nbsp;
+                  </button>
+
+                  <button class="btn btn-lg bg-purple pull-right trigger-4">
+                    &nbsp;
+                  </button>
+
+                  <button class="btn btn-lg bg-purple pull-right trigger-4">
+                    &nbsp;
+                  </button>
+
+                  <button class="btn btn-lg bg-orange pull-right trigger-4">
+                    &nbsp;
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- end trigger-4 example-->
+
+            <!-- begin trigger-5 example-->
+            <div class="well clearfix">
+              <div class="row">
+                <div class="clearfix col-md-2">
+                  <button class="btn btn-lg" id="trigger-5">
+                    #trigger-5
+                  </button>
+                </div>
+          
+                <div class="clearfix col-md-10">
+                  <button class="btn btn-lg bg-orange pull-right trigger-5">
+                    S.R. Ranganathan
+                  </button>
+
+                  <button class="btn btn-lg bg-green pull-right trigger-5">
+                    Zoia Horn
+                  </button>
+
+                  <button class="btn btn-lg bg-green pull-right trigger-5">
+                    Melvil Dewey
+                  </button>
+
+                  <button class="btn btn-lg bg-yellow pull-right trigger-5">
+                    Callimachus
+                  </button>
+
+                  <button class="btn btn-lg bg-orange pull-right trigger-5">
+                    Henriette Avram
+                  </button>
+
+                  <button class="btn btn-lg bg-purple pull-right trigger-5">
+                    Thomas Bodley
+                  </button>
+
+                  <button class="btn btn-lg bg-yellow pull-right trigger-5">
+                    Jesse Shera
+                  </button>
+
+                  <button class="btn btn-lg bg-orange pull-right trigger-5">
+                    Suzanne Briet
+                  </button>
+
+                  <button class="btn btn-lg bg-orange pull-right trigger-5">
+                    Paul Otlet
+                  </button>
+
+                  <button class="btn btn-lg bg-green pull-right trigger-5">
+                    Charles Ammi Cutter
+                  </button>
+
+                  <button class="btn btn-lg bg-yellow pull-right trigger-5">
+                    John Cotton Dana
+                  </button>
+
+                  <button class="btn btn-lg bg-green pull-right trigger-5">
+                    Judith Krug
+                  </button>
+
+                  <button class="btn btn-lg bg-purple pull-right trigger-5">
+                    Margaret Cross Norton
+                  </button>
+
+                  <button class="btn btn-lg bg-orange pull-right trigger-5">
+                    E.J. Josey
+                  </button>
+                </div>
+              </div>
+              
+              <div class="row">
+                <div class="col-md-12">
+                  <hr />
+                </div>
+                <div class="col-md-6" id="trigger-5-results-div">
+                  <h4>Your results</h4>
+                </div>
+                <div class="col-md-6">
+                  <h4>Desired results</h4>
+                  Zoia Horn<br />
+                  Melvil Dewey<br /> 
+                  Charles Ammi Cutter<br />
+                  Judith Krug<br />
+                </div>
+              </div>
+            </div>
+            <!-- end trigger-5 example-->
+
+            <!-- begin trigger-6 example -->
+            <div class="well clearfix">
+              <div class="row">
+                <div class="clearfix col-md-2">
+                  <button class="btn btn-lg" id="trigger-6">
+                    #trigger-6
+                  </button>
+                </div>
+          
+                <div class="clearfix col-md-10">
+                  <button class="btn btn-lg bg-orange pull-right trigger-6">
+                    S.R. Ranganathan
+                  </button>
+
+                  <button class="btn btn-lg bg-green pull-right trigger-6">
+                    Zoia Horn
+                  </button>
+
+                  <button class="btn btn-lg bg-green pull-right trigger-6">
+                    Melvil Dewey
+                  </button>
+
+                  <button class="btn btn-lg bg-yellow pull-right trigger-6">
+                    Callimachus
+                  </button>
+
+                  <button class="btn btn-lg bg-orange pull-right trigger-6">
+                    Henriette Avram
+                  </button>
+
+                  <button class="btn btn-lg bg-purple pull-right trigger-6">
+                    Thomas Bodley
+                  </button>
+
+                  <button class="btn btn-lg bg-yellow pull-right trigger-6">
+                    Jesse Shera
+                  </button>
+
+                  <button class="btn btn-lg bg-orange pull-right trigger-6">
+                    Suzanne Briet
+                  </button>
+
+                  <button class="btn btn-lg bg-orange pull-right trigger-6">
+                    Paul Otlet
+                  </button>
+
+                  <button class="btn btn-lg bg-green pull-right trigger-6">
+                    Charles Ammi Cutter
+                  </button>
+
+                  <button class="btn btn-lg bg-yellow pull-right trigger-6">
+                    John Cotton Dana
+                  </button>
+
+                  <button class="btn btn-lg bg-green pull-right trigger-6">
+                    Judith Krug
+                  </button>
+
+                  <button class="btn btn-lg bg-purple pull-right trigger-6">
+                    Margaret Cross Norton
+                  </button>
+
+                  <button class="btn btn-lg bg-orange pull-right trigger-6">
+                    E.J. Josey
+                  </button>
+                </div>
+              </div>
+              
+              <div class="row">
+                <div class="col-md-12">
+                  <hr />
+                </div>
+                <div class="col-md-6" id="trigger-6-results-div">
+                  <h4>Your results</h4>
+                </div>
+                <div class="col-md-6">
+                  <h4>Desired results</h4>
+                  Zoia Horn<br />
+                  Melvil Dewey<br /> 
+                  Callimachus<br /> 
+                  Henriette Avram<br />
+                  Suzanne Briet<br />
+                  Charles Ammi Cutter<br />
+                  Judith Krug<br />
+                </div>
+              </div>
+            </div>
+            <!-- end trigger-6 example -->
+
+          </div>
           <!-- end practice functions with loops and conditionals -->
 
 <!--
@@ -472,7 +1134,6 @@ break down into steps: write signature; do work; optionally
 return something; call the function
 
 * Functions
-  * $j(this)?? highly specialized, but might need it
   * make sure to show examples that use variables, data types, if/then, loops
   * then show examples that put several things together
   * deal with how to trigger them separately - give them the shell at first
@@ -484,15 +1145,44 @@ return something; call the function
 MAKE SURE YOU HAVE ALREADY INTRODUCED....
 .css()
 .html()
+.indexOf() and its weirdness
+.each() and $j(this)
+.split()
+lists and slicing
+
 -->
         
-            <div class="well clearfix">
-              <strong>
-                <span class="glyphicon glyphicon-exclamation-sign"></span>
-              </strong>
-              A lot of the challenge, fun, and frustration of programming
-              is figuring out how to write clear enough rules. If a program
-              isn't working like you expect, check:
+            <div>
+              <h3>Troubleshooting!</h3>
+              
+              <p>
+                Because we're human, we usually don't think of all the
+                edge cases the first time we write programs, and we do
+                often make mistakes. As we discover omissions and errors 
+                over time, we make our programs better.  This is as true for
+                people in their first day of programming as it is for
+                people in their twentieth year -- you just get to make
+                more interesting mistakes with experience, and develop
+                more sophisticated tools for fixing them.
+              </p>
+
+              <p>
+                This means that being a good programmer isn't about
+                never making mistakes.  <em>We all make mistakes.</em>
+                It's about persevering until you fix them.  Take a break
+                and come back if you need to, by all means ask for help.
+                do whatever works to manage your frustration levels, but
+                stick with it, and you'll end up a good programmer.
+              </p>
+
+              <h4>Fixing logic errors</h4>
+              <p>
+                A lot of the challenge, fun, and frustration of programming
+                is figuring out how to write clear enough rules. If a
+                program doing something, but not what you expect, check your 
+                logic:
+              </p>
+
               <ul>
                 <li>
                   Does your rule actually apply to all the cases it needs to?
@@ -504,9 +1194,78 @@ MAKE SURE YOU HAVE ALREADY INTRODUCED....
                   Does your rule have exceptions you need to account for?
                 </li>
               </ul>
-              Because we're human, we usually don't think of all the
-              edge cases the first time we write programs. As we discover
-              them over time, we make our programs better.
+              
+              <h4>Fixing syntax errors</h4>
+              <p>
+                If the program isn't doing anything, or you think your
+                logic is right but you're still not getting the behavior
+                you expect, check your syntax:
+              </p>
+              
+              <ul>
+                <li>
+                  Did you end all your lines with semicolons?
+                </li>
+                <li>
+                  Do the ID/class names you're using in your function
+                  match the ones on your HTML element(s)?
+                </li>
+                <li>
+                  JavaScript is <em>case sensitive</em>; variablename
+                  and variableName are different. css() is a function, but
+                  CSS() is not. Have you been consistent in your case usage?
+                </li>
+                <li>
+                  <code>Uncaught SyntaxError: Unexpected token (</code> or
+                  similar: did you close all your open parentheses? Did you
+                  spell your function names right? Look <em>at</em> all
+                  your parentheses to make sure they're right; then look
+                  <em>near</em> them for errors.  Sometimes the SyntaxError
+                  the computer raises refers to something just after the
+                  mistake you actually made, because the computer keeps
+                  going until it realizes it doesn't know what's going on
+                  before it complains (much like some people you probably
+                  know...).
+                </li>
+                <li>
+                  <code>"Uncaught ReferenceError: X is not defined"</code>:
+                  make sure you actually defined it! Check that its
+                  spelling and case are consistent.
+                </li>
+              </ul>
+              
+              <h4>Techniques</h4>
+              <p>
+                Some helpful techniques:
+              </p>
+              <ul>
+                <li>
+                  Type your function into the console a little at a time.
+                  Try just the selector that you're binding your funciton
+                  to - is it grabbing the right piece of HTML? Try leaving
+                  out the on("click") outer shell and just writing 
+                  a line in the middle of the function - does it make the
+                  change you expect? If you're trying to write a loop, can 
+                  you first write a line of code that changes <em>one</em>
+                  thing?  Once you've got individual components that work,
+                  sewing them together will be simpler.
+                </li>
+                <li>
+                  If it's hard to read your function in the console 
+                  (especially as it gets longer), edit it in a text editor
+                  where you can space it out and use a bigger font. When
+                  you're satisfied, copy-paste it into the console window.
+                </li>
+                <li>
+                  Add <code>alert(X);</code> or <code>console.log(X);</code> 
+                  statements into your code. X should be a variable whose 
+                  value you want to check.  This will make the computer tell 
+                  you what <em>it</em> thinks X is at a given point in the 
+                  program; you can compare that against what you expect X to 
+                  be.
+                </li>
+              </ul>
+
             </div>
         </div>
         <!-- end main content div -->
@@ -538,6 +1297,7 @@ MAKE SURE YOU HAVE ALREADY INTRODUCED....
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
+    <!-- begin example functions -->
     <script type="text/javascript">
       // Yes, I wrote this function so I wouldn't have to copy-paste the
       // HTML block each time, and so I wouldn't have to worry about errors.
@@ -562,6 +1322,14 @@ MAKE SURE YOU HAVE ALREADY INTRODUCED....
     </script>
     
     <script type="text/javascript">
+      $j("#loop-trigger-1").on("click", function() {
+        $j(".loop-1").each(function() {
+            $j(this).css("background-color", "#7d3c75");
+        });
+      });
+    </script>
+    
+    <script type="text/javascript">
       var $j = jQuery.noConflict();
 
       $j("#conditional-trigger").on("click", function () {
@@ -572,6 +1340,39 @@ MAKE SURE YOU HAVE ALREADY INTRODUCED....
         }
       });
     </script>
+
+    <script type="text/javascript">
+      var $j = jQuery.noConflict();
+
+      $j("#loop-conditional-trigger").on("click", function() {
+        $j(".loop-2").each(function(index) {
+            var targetColor = $j(this).html();
+        
+            if (targetColor.indexOf('Purple') >= 0) {
+              $j(this).css("background-color", "#7d3c75");
+            } else if (targetColor.indexOf('Orange') >= 0) {
+              $j(this).css("background-color", "#e67747");
+            } else if (targetColor.indexOf('Lavender') >= 0) {
+              $j(this).css("background-color", "#826c9c");
+            }
+        });
+      });
+    </script>
+    
+    <script type="text/javascript">
+      // Let's find this once and store it, as we'll need it throughout.
+      var resultsDiv = $j("#results-div");
+
+      $j("#loop-trigger-2").on("click", function() {
+        $j(".record-set").each(function() {
+            var titleList = $j(this).html().split(":");
+            var titleName = titleList[1];
+            alert(titleName);
+            resultsDiv.append(titleName + '<br />');
+        });
+      });
+    </script>
+    <!-- end example functions -->
     
   </body>
 </html>
