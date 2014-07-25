@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Intro to Programming: Functions</title>
 
-    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-custom/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/custom.css" type="text/css">
 
     <link href='http://fonts.googleapis.com/css?family=PT+Sans|Enriqueta:700' rel='stylesheet' type='text/css'>
@@ -240,7 +240,12 @@
           <!-- begin function practice div 1 -->
           <div>
             <h3>Your turn</h3>
-      
+            
+            <p>
+              If you get stuck, talk to your neighbors and check out the
+              Troubleshooting section at the bottom of the page.
+            </p>
+
             <ol>
               <li>
                 Write a function that makes the purple div 
@@ -667,7 +672,6 @@
 
             <div class="question-time clearfix">
             </div>
-            
           </div>
           <!-- end functions with loops -->
 
@@ -1123,6 +1127,8 @@
             </div>
             <!-- end trigger-6 example -->
 
+            <div class="question-time clearfix">
+            </div>
           </div>
           <!-- end practice functions with loops and conditionals -->
 
@@ -1367,9 +1373,11 @@ lists and slicing
         $j(".record-set").each(function() {
             var titleList = $j(this).html().split(":");
             var titleName = titleList[1];
-            alert(titleName);
             resultsDiv.append(titleName + '<br />');
         });
+        // If people click the button more than once, this will make
+        // it easier to see the results of each call.
+        resultsDiv.append('<br /><hr>');
       });
     </script>
     <!-- end example functions -->

@@ -20,7 +20,7 @@ a:hover {
 }
 
 h1, h2, h3 {
-  font-family: 'Enriqueta';        
+  font-family: Enriqueta;        
 }
 
 h2.panel-title {
@@ -53,6 +53,13 @@ code .highlight {
   -webkit-border-radius: 4px; 
      -moz-border-radius: 4px; 
           border-radius:4px;
+}
+
+mark {
+  background-color: #fcd67e;
+  padding: 3px 5px;
+  margin-top: -3px;
+  margin-bottom: -3px;
 }
 
 strong {
@@ -176,12 +183,35 @@ strong {
   color: white !important;
 }
 
+.bg-purple.no-hover:hover {
+  background: #7d3c75 !important;
+  color: white !important;
+  border-color: #7d3c75 !important;
+}
+
+.bg-yellow.no-hover:hover {
+  background: #fcd67e !important;
+  color: white !important;
+  border-color: #fcd67e !important;
+}
+
+.bg-yellow {
+  background: #fcd67e;
+  color: white;
+  border-color: #fcd67e;
+}
+
 .yellow-text {
   color: #fcd67e;
 }
 
 .purple-text {
   color: #7d3c75;
+}
+
+.conditional-loops-2 {
+  width: 320px;
+  height: 213px;
 }
 
 /* Sticky footer styles
