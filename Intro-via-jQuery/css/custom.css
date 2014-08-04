@@ -67,6 +67,10 @@ strong {
   font-weight: bold;
 }
 
+.lead-grey{
+  color: #999;
+}
+
 .btn.pull-right {
   margin-left: 6px;
   padding-bottom: 6px;

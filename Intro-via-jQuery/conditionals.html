@@ -268,7 +268,7 @@
               Did they do what you expected?
             </p>
 
-            <div class="question-time clearfix">
+            <div class="question-time clearfix"></div>
           </div>
           <!-- end indexOf() -->
           
@@ -317,7 +317,7 @@
             </p>
 <pre>
 <code class="code-big">
-  var courseDataTypes = ['string', 'number', 'array', 'boolean']
+  var courseDataTypes = ['string', 'number', 'array']
 </code>
 </pre>
             <p>
@@ -335,7 +335,7 @@
               <li>
                 Arrays stay in order.  If we looked at
                 <code>courseDataTypes</code> later, <code>'string'</code>
-                would still be first and <code>'boolean'</code> would still
+                would still be first and <code>'array'</code> would still
                 be last.
               </li>
             </ul>
@@ -428,7 +428,11 @@
           </div>
           <!-- end split() -->
 
-          <!-- begin booleans -->
+          <!-- Turns out we weren't actually using booleans for anything
+               else later in the course, not even conditionals! So let's not
+               add the complexity/time.
+          -->
+          <!-- begin booleans
           <div>
             <h3>All your Boolean search experience pays off</h3>
             
@@ -467,26 +471,477 @@
               but let's make that explicit: what does <code>typeof()</code> do?
             </p>
             
+            <div class="question-time clearfix"></div>
+          </div>
+          end booleans -->
+
+          <!-- begin if/else -->
+          <div>
+            <h3>Aw yeah conditionals</h3>
+            
             <p>
-              There are other data types we won't be covering today; I'd 
-              rather you understand a few things clearly than many things 
-              poorly. Just be aware that they're out there, and you'll
-              encounter them if you go further in programming.
+              Time to write our first multi-line programs!
+            </p>
+            
+            <p>
+              There are lots of times you might want to run different code,
+              depending on your inputs:
+            </p>
+            
+            <ul>
+              <li>
+                Make the buttons grey if the cursor is hovering over them,
+                but purple otherwise;
+              </li>
+              <li>
+                Flag a MARC record for human review if it doesn't have an
+                ISBN, but leave it alone otherwise;
+              </li>
+              <li>
+                Make a number red if it represents a loss but black if it
+                represents a surplus;
+              </li>
+              <li>
+                What else?
+              </li>
+            </ul>
+            
+            <p>
+              In programming, we do this with <code>if/else</code> statements
+              (also called conditionals). You'll frequently see conditionals
+              used together with booleans: <code>if</code> a condition is met,
+              do something; otherwise, do something else.
+            </p>
+            
+            <p>
+              The following code will execute when we click the buttons below.
+              What will happen with each button? (<code>.hide()</code> does
+              what you would guess from the name.)
+            </p>
+<pre>
+<code class="code-big">
+  if ($j('.conditional-button').html().indexOf('ISBN') > 0) {
+      $j(this).hide();
+  }
+</code>
+</pre>
+            <div class="well clearfix">
+              <div class="well pull-left conditional-button">
+                Author: Marcus Sakey; Title: <em>Brilliance</em>;
+                ISBN: 9781611099690
+              </div>
+              <div class="well pull-left conditional-button">
+                Author: Julia Serano; Title: <em>Whipping Girl: A Transsexual
+                Woman on Sexism and the Scapegoating of Femininity</em>
+              </div>
+              <div class="well pull-left conditional-button">
+                Author: Alfred Lubrano; Title: <em>Limbo: Blue-Collar Roots,
+                White-Collar Dreams</em>; ISBN: 34870005769746
+              </div>
+              <div class="well pull-left conditional-button">
+                Author: Alice Goffman; Title: <em>On the Run: Fugitive Life
+                in an American City</em>; ISBN: 9780226136714
+              </div>
+            </div>
+            
+            <p>
+              Question: what are some problems with this approach to flagging
+              records? What kinds of problems will it <em>not</em> catch?
+            </p>
+            
+            <p>
+              Here's a more complex example. What will this code do?
+            </p>
+<pre>
+<code class="code-big">
+  if ($j('.conditional-button2').html().indexOf('ISBN') > 0) {
+      $j(this).hide();
+  } else {
+      $j(this).css('background-color', '#fcd67e');
+  }
+</code>
+</pre>
+            <div class="well clearfix">
+              <div class="well pull-left conditional-button2">
+                Author: Marcus Sakey; Title: <em>Brilliance</em>;
+                ISBN: 9781611099690
+              </div>
+              <div class="well pull-left conditional-button2">
+                Author: Julia Serano; Title: <em>Whipping Girl: A Transsexual
+                Woman on Sexism and the Scapegoating of Femininity</em>
+              </div>
+              <div class="well pull-left conditional-button2">
+                Author: Alfred Lubrano; Title: <em>Limbo: Blue-Collar Roots,
+                White-Collar Dreams</em>; ISBN: 34870005769746
+              </div>
+              <div class="well pull-left conditional-button2">
+                Author: Alice Goffman; Title: <em>On the Run: Fugitive Life
+                in an American City</em>; ISBN: 9780226136714
+              </div>
+            </div>
+            
+            <p>
+              As you have seen, the overall structure of an if statement
+              is this:
+            </p>
+<pre>
+<code class="code-big">
+  if (something is true) {
+      // do one thing
+  } else {
+      // do a different thing
+  }
+</code>
+</pre>
+            <p>
+              Make sure to take note of the parentheses and curly braces -
+              they matter! If you find an if condition you write isn't working,
+              this is the first thing you should proofread for.
+            </p>
+            
+            <p>
+              The indentation will not make a difference to the computer,
+              but it will make a difference to you &mdash; code is easier
+              to read, skim, and debug if it is well-organized.
+            </p>
+          </div>
+          <!-- end if/else -->
+
+          <!-- begin if/else practice-->
+          <div>
+            <h3>Your turn!</h3>
+            
+            <p>
+              Here are some functions for you to practice what you've
+              learned. I've written the outlines; your job is to replace
+              the English descriptions with actual code.  Type your code
+              into your console and click the buttons - do you get
+              the behavior you expect?
+            </p>
+            
+            <p>
+              FYI, in my browser (Chrome), when I press enter the code
+              executes immediately, which may not be what I want if I was
+              just trying to put in a line break for readability. If you
+              want the line break but you <em>don't</em> want the code to
+              run yet, press shift-enter instead. You may find it easiest to 
+              write the code in a text editor and then copy-paste it into the 
+              console when you're satisfied.
+            </p>
+            
+            <p>
+              As always, don't be surprised if you need to tweak it a few
+              times for it to work. If you get stuck, talk to your neighbors
+              or put a post-it on your computer. If you're done, help
+              others or see if you can extend your code.
+            </p>
+            
+            <p>
+              Hex/rgb codes for the colors used in this page:
+            </p>
+            
+            <ul>
+              <li>
+                <em>Purple</em>: #7d3c75 / rgb(125, 60, 117)
+              </li>
+              <li>
+                <em>Yellow</em>: #fcd67e / rgb(252, 214, 126)
+              </li>
+              <li>
+                <em>Green</em>: #b2b84a / rgb(178, 184, 74)
+              </li>
+              <li>
+                <em>Orange</em>: #e67747 / rgb(230, 119, 71)
+              </li>
+            </ul>
+            
+            <p>
+              Your Javascript interpreter doesn't know that #7d3c75 is
+              the same as rgb(125, 60, 117).  If one of them doesn't
+              work, try the other.  (I used hex codes in the stylesheet,
+              but I have to use rgb for Chrome's console to recognize the
+              color.)
             </p>
 
-            <div class="question-time clearfix">
+            <!-- begin example 1 -->
+            <div class="well clearfix">
+              <p class="lead lead-grey">
+                <em>.example-1</em>
+              </p>
+              <div class="row">
+                <div class="col-md-4">
+                  <button class="btn btn-lg bg-green example-1">
+                    go away
+                  </button>
+                  <button class="btn btn-lg bg-green example-1">
+                    stay here
+                  </button>
+                  <button class="btn btn-lg bg-green example-1">
+                    go away
+                  </button>
+                  <button class="btn btn-lg bg-green example-1">
+                    go away
+                  </button>
+                  <button class="btn btn-lg bg-green example-1">
+                    stay here
+                  </button>
+                  <button class="btn btn-lg bg-green example-1">
+                    go away
+                  </button>
+                </div>
+                <div class="col-md-8">
+<pre>
+<code>
+  $j('.example-1').on('click', function () {
+    if ($j(this) contains the phrase 'go away' ) {
+        hide it
+    }
+  });
+</code>
+</pre>                
+                </div>
+              </div>
+            </div>
+            <!-- end example 1 -->
+
+            <!-- begin example 2 -->
+            <div class="well clearfix">
+              <p class="lead lead-grey">
+                <em>.example-2</em>
+              </p>
+              <div class="row">
+                <div class="col-md-4">
+                  <button class="btn btn-lg bg-green example-2">
+                    <br />
+                  </button>
+                  <button class="btn btn-lg bg-purple example-2">
+                    <br />
+                  </button>
+                  <button class="btn btn-lg bg-yellow example-2">
+                    <br />
+                  </button>
+                  <button class="btn btn-lg bg-orange example-2">
+                    <br />
+                  </button>
+                  <button class="btn btn-lg bg-green example-2">
+                    <br />
+                  </button>
+                  <button class="btn btn-lg bg-purple example-2">
+                    <br />
+                  </button>
+                </div>
+                <div class="col-md-8">
+<pre>
+<code>
+  $j('.example-2').on('click', function () {
+    if ($j(this) has purple background color ) {
+        make its background color green
+    }
+  });
+</code>
+</pre>                
+                </div>
+              </div>
+            </div>
+            <!-- end example 2 -->
+
+            <!-- begin example 3 -->
+            <div class="well clearfix">
+              <p class="lead lead-grey">
+                <em>.example-3</em>
+              </p>
+              <div class="row">
+                <div class="col-md-4">
+                  <button class="btn btn-lg bg-green example-3">
+                    <br />
+                  </button>
+                  <button class="btn btn-lg bg-purple example-3">
+                    <br />
+                  </button>
+                  <button class="btn btn-lg bg-yellow example-3">
+                    <br />
+                  </button>
+                  <button class="btn btn-lg bg-orange example-3">
+                    <br />
+                  </button>
+                  <button class="btn btn-lg bg-green example-3">
+                    <br />
+                  </button>
+                  <button class="btn btn-lg bg-purple example-3">
+                    <br />
+                  </button>
+                </div>
+                <div class="col-md-8">
+<pre>
+<code>
+  $j('.example-3').on('click', function () {
+    if ($j(this) is purple ) {
+        make it green
+    } else {
+        make it orange
+    }
+  });
+</code>
+</pre>                
+                </div>
+              </div>
+            </div>
+            <!-- end example 3 -->
+
+            <!-- begin example 4 -->
+            <div class="well clearfix">
+              <p class="lead lead-grey">
+                <em>.example-4</em>
+              </p>
+              <div class="row">
+                <div class="col-md-4">
+                  <button class="btn btn-lg bg-green example-4">
+                    <br />
+                  </button>
+                  <button class="btn btn-lg bg-purple example-4">
+                    <br />
+                  </button>
+                  <button class="btn btn-lg bg-yellow example-4">
+                    <br />
+                  </button>
+                  <button class="btn btn-lg bg-orange example-4">
+                    <br />
+                  </button>
+                  <button class="btn btn-lg bg-green example-4">
+                    <br />
+                  </button>
+                  <button class="btn btn-lg bg-purple example-4">
+                    <br />
+                  </button>
+                </div>
+                <div class="col-md-8">
+<pre>
+<code>
+  $j('.example-4').on('click', function () {
+    if ($j(this) is purple ) {
+        make it green
+    } else if ($j(this) is green) {
+        make it orange
+    }
+  });
+</code>
+</pre>                
+                </div>
+              </div>
+            </div>
+            <!-- end example 4 -->
+
+            <!-- begin example 5 -->
+            <div class="well clearfix">
+              <p class="lead lead-grey">
+                <em>.example-5</em>
+              </p>
+              <div class="row">
+                <div class="col-md-4">
+                  <h4>Title list</h4>
+
+                  <span class="example-5-title">Author: Marcus Sakey; Title: 
+                  <em>Brilliance</em>; ISBN: 9781611099690</span>
+                  <br /><br />
+                  <span class="example-5-title">Author: Julia Serano; Title:
+                  <em>Whipping Girl: A Transsexual Woman on Sexism and the
+                  Scapegoating of Femininity</em></span>
+                  <br /><br />
+                  <span class="example-5-title">Author: Alfred Lubrano; Title:
+                  <em>Limbo: Blue-Collar Roots, White-Collar Dreams</em>;
+                  ISBN: 34870005769746</span>
+                  <br /><br />
+                  <span class="example-5-title">Author: Alice Goffman; Title: 
+                  <em>On the Run: Fugitive Life in an American City</em>;
+                  ISBN: 9780226136714</span>
+                </div>
+                <div class="col-md-8">
+<pre>
+<code>
+  $j('#example-5-run-button').on('click', function () {
+    var titleList = $j('.example-5-title');
+
+    titleList.each(function() {
+      if ($j(this) has an ISBN ) {
+        remove it from the list
+      }
+    });
+  });
+</code>
+</pre>
+                    <button class="btn btn-lg bg-green" id="example-5-run-button">
+                      Run code
+                    </button>
+                </div>
+              </div>
+            </div>
+            <!-- end example 5 -->
+
+            <!-- begin example 6 -->
+            <div class="well clearfix">
+              <p class="lead lead-grey">
+                <em>.example-6</em>
+              </p>
+              <div class="row">
+                <div class="col-md-4">
+                  <h4>Title list</h4>
+
+                  <span class="example-6-title">Author: Marcus Sakey; Title: 
+                  <em>Brilliance</em>; ISBN: 9781611099690</span>
+                  <br /><br />
+                  <span class="example-6-title">Author: Julia Serano; Title:
+                  <em>Whipping Girl: A Transsexual Woman on Sexism and the
+                  Scapegoating of Femininity</em></span>
+                  <br /><br />
+                  <span class="example-6-title">Author: Alfred Lubrano; Title:
+                  <em>Limbo: Blue-Collar Roots, White-Collar Dreams</em>;
+                  ISBN: 34870005769746</span>
+                  <br /><br />
+                  <span class="example-6-title">Author: Alice Goffman; Title: 
+                  <em>On the Run: Fugitive Life in an American City</em>;
+                  ISBN: 9780226136714</span>
+                </div>
+                <div class="col-md-8">
+<pre>
+<code>
+  $j('#example-6-run-button').on('click', function () {
+    var titleList = $j('.example-6-title');
+
+    titleList.each(function() {
+      if ($j(this) has an ISBN ) {
+        if (the ISBN starts with 978) {
+          remove the title from the list
+        }
+      }
+    });
+  });
+</code>
+</pre>
+                    <button class="btn btn-lg bg-green" id="example-6-run-button">
+                      Run code
+                    </button>
+                </div>
+              </div>
+            </div>
+            <!-- end example 6 -->
+
           </div>
-          <!-- end booleans -->
+          <!-- begin if/else practice-->
 
 <!--
 MAKE SURE YOU HAVE ALREADY INTRODUCED....
 .css()
+.html()
 applying a jquery function to an entire selector - use same example.
 "arguments"
 "return"
+$j(this)
 
 Then you can take their definitions out of the functions page (or phrase them
 as review)
+
+Rewrite all the css() things to addClass/removeClass/hasClass
+test all the conditionals examples
 -->
 
 <!--
@@ -540,10 +995,25 @@ TO COVER THIS PAGE:
         $j(this).children('span.glyphicon').toggleClass('hidden');
       });
 
+      // Consistent formatting for question-time divs
       $j(document).on("ready", function () {
         $j(".question-time").each(function () {
           $j(this).html('<div class="oversized-and-orange clearfix"><span class="glyphicon glyphicon-question-sign pull-left"></span><div class="text pull-left">Question time!</div></div>');
         });
+      });
+      
+      $j('.conditional-button').on('click', function() {
+        if ($j(this).html().indexOf('ISBN') > 0) {
+            $j(this).hide();
+        }
+      });
+
+      $j('.conditional-button2').on('click', function() {
+        if ($j(this).html().indexOf('ISBN') > 0) {
+            $j(this).hide();
+        } else {
+            $j(this).css('background-color', '#fcd67e');
+        }
       });
     </script>
   </body>
