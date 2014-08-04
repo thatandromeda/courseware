@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Intro to Programming: Loops</title>
+
+    <link rel="stylesheet" href="css/bootstrap-custom/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/custom.css" type="text/css">
+
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans|Enriqueta:700' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <!-- begin header -->
+    <div class="jumbotron bg-purple">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-offset-1 col-md-10">
+            <h1>
+              Introduction to Programming Concepts via jQuery
+            </h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end header -->
+
+    <!-- begin main container div -->
+    <div class="container-fluid">
+      <!-- begin main row div -->
+      <div class="row">
+        <!-- begin main content div -->
+        <div class="col-md-10 col-md-offset-1">
+
+<!--
+MAKE SURE YOU HAVE ALREADY INTRODUCED....
+.css()
+.indexOf() and its weirdness
+.split()
+applying a jquery function to an entire selector - use same example.
+"arguments"
+"return"
+-->
+          <!-- begin intro section div -->
+          <div>
+            <h2>Loops!</h2>
+            
+            <p>
+              We've already seen how to apply a jQuery function to everything
+              on the page that matches a particular selector. Remember this
+              (what does it do?):
+            </p>
+<pre>
+<code class="code-big">
+  $j(".make-me-yellow").css("background-color", "#fcd67e");
+</code>
+</pre>
+            <div class="well clearfix">
+              <button class="btn btn-lg bg-purple no-hover make-me-yellow">
+                <span class="yellow-text">
+                  I want to be yellow...
+                </span>
+                <br/>
+                <span class="purple-text">
+                  Yay, I am yellow!
+                </span>
+              </button>
+              <button class="btn btn-lg bg-purple no-hover make-me-yellow">
+                <span class="yellow-text">
+                  I would also like to be yellow.
+                </span>
+                <br/>
+                <span class="purple-text">
+                  Yay, I am yellow!
+                </span>
+              </button>
+              <button class="btn btn-lg bg-purple no-hover make-me-yellow">
+                <span class="yellow-text">
+                  All of the cool kids want to be yellow.
+                </span>
+                <br/>
+                <span class="purple-text">
+                  Yay, I am yellow!
+                </span>
+              </button>
+              <button class="btn btn-lg bg-purple no-hover make-me-yellow">
+                <span class="yellow-text">
+                  Me tooooooo
+                </span>
+                <br/>
+                <span class="purple-text">
+                  Yay, I am yellow!
+                </span>
+              </button>
+            </div>
+
+            <p>
+              Type the code into your developer console to check your
+              idea. (Don't forget the <code>var $j = jQuery.noConflict();</code>
+              first.)
+            </p>
+
+            <p>
+              That is super rad if you want to do the same thing to everything
+              in a set. But what if you'd like to look at each item
+              individually, and make choices...?
+            </p>
+            <!-- begin bad plans -->
+            <div class="well">
+              <div class="row">
+                <div class="col-md-6">
+                  <h4>Dr. BadPlan suggests...</h4>
+                </div>
+                <div class="col-md-6">
+                  <h4>Alternatively:</h4>
+                </div>
+              </div>
+              <!-- begin bad plan number one -->
+              <div class="row">
+                <div class="col-md-6">
+                  <ol>
+                    <li>
+                      Throw away every book in your library
+                    </li>
+                  </ol>
+                </div>
+                <div class="col-md-6">
+                  <ol>
+                    <li>
+                      Look at every book in your library
+                    </li>
+                    <li>
+                      If it is in bad condition, weed it
+                    </li>
+                    <li>
+                      If it hasn't circulated in a decade, weed it
+                    </li>
+                    <li>
+                      (et cetera)
+                    </li>
+                  </ol>
+                </div>
+              </div>
+              <!-- end bad plan number one -->
+              <hr/>
+              <!-- begin bad plan number two -->
+              <div class="row">
+                <div class="col-md-6">
+                  <ol>
+                    <li>
+                      Add http://facebook.com to the 856$u of every record
+                      in your catalog
+                    </li>
+                  </ol>
+                </div>
+                <div class="col-md-6">
+                  <ol>
+                    <li>
+                      Look at every record in your catalog
+                    </li>
+                    <li>
+                      Check against a file of titles and URLs to see if you
+                      have a URL for this title
+                    </li>
+                    <li>
+                      If you do, add it to the 856$u
+                    </li>
+                  </ol>
+                </div>
+              </div>
+              <!-- end bad plan number two -->
+            </div>
+            <!-- end bad plans -->
+            <!-- all bad plans, forever! -->
+            <!-- ...except the super fun ones -->
+            
+            <p>
+              You can do this with a <mark>loop</mark>.  As the term suggests,
+              loops cycle through every element of a set, looking at them one
+              at a time.  You can apply whatever rule(s) you like to each
+              one.
+            </p>
+          </div>
+          <!-- end intro section div -->
+
+          <!-- begin intro section question div -->
+          <div>
+            <h3>Your turn!</h3>
+
+            <p>
+              What are some everyday processes that are secretly loops?
+            </p>
+          </div>
+          <!-- end intro section question div -->
+
+          <!-- begin loops in action div -->
+          <div>
+            <h3>Loops in action</h3>
+            
+            <p>
+              Let's rewrite the code above as a loop. (Important programming
+              fact: there's usually more than one working way to write a
+              program! In other words, there's no one right answer.)
+            </p>
+<pre>
+<code class="code-big">
+  $j(".make-me-yellow-loop-version").each(function() {
+    $j(this).css("background-color", "#fcd67e");
+  });
+</code>
+</pre>
+            <div class="well clearfix">
+              <button class="btn btn-lg bg-purple no-hover make-me-yellow-loop-version">
+                <span class="yellow-text">
+                  I want to be yellow...
+                </span>
+                <br/>
+                <span class="purple-text">
+                  Yay, I am yellow!
+                </span>
+              </button>
+              <button class="btn btn-lg bg-purple no-hover make-me-yellow-loop-version">
+                <span class="yellow-text">
+                  I would also like to be yellow.
+                </span>
+                <br/>
+                <span class="purple-text">
+                  Yay, I am yellow!
+                </span>
+              </button>
+              <button class="btn btn-lg bg-purple no-hover make-me-yellow-loop-version">
+                <span class="yellow-text">
+                  All of the cool kids want to be yellow.
+                </span>
+                <br/>
+                <span class="purple-text">
+                  Yay, I am yellow!
+                </span>
+              </button>
+              <button class="btn btn-lg bg-purple no-hover make-me-yellow-loop-version">
+                <span class="yellow-text">
+                  Me tooooooo
+                </span>
+                <br/>
+                <span class="purple-text">
+                  Yay, I am yellow!
+                </span>
+              </button>
+            </div>
+            
+            <p>
+              Type this into your developer console. It should do exactly the
+              same thing as the previous code, except on this set of buttons.
+            </p>
+            
+            <p>
+              An important new thing we see here is <mark>$j(this)</mark>.
+              As you might guess, <code>this</code> means "this item that
+              we're looking at right now - the one we're doing stuff to
+              this time through the loop".
+            </p>
+            
+            <p>
+              <code>this</code> is a <mark>reserved word</mark> in JavaScript;
+              that means the language reserves it for its own uses, and you
+              shouldn't name any of your own variables or functions "this".
+              If you do, the computer will probably get confused in
+              unpredictable (and hard-to-debug) ways. Use <code>this</code>
+              only for its intended purpose; come up with more descriptive
+              names for the functions and variables that you define.
+            </p>
+          </div>
+          <!-- end loops in action div -->
+
+          <!-- begin loops in action practice div -->
+          <div>
+            <h3>Your turn!</h3>
+            
+            <p>
+              Rewrite the following statements to use loops.  Don't forget -
+              decide first what you think each loop will do!
+            </p>
+<pre>
+<code class="code-big">
+  $j(".make-me-green").css("background-color", "#b2b84a");
+</code>
+</pre>
+
+            <div class="well clearfix">
+              <button class="btn btn-lg bg-purple no-hover make-me-green">
+                .make-me-green
+              </button>
+              <button class="btn btn-lg bg-purple no-hover make-me-green">
+                .make-me-green
+              </button>
+              <button class="btn btn-lg bg-purple no-hover make-me-green">
+                .make-me-green
+              </button>
+              <button class="btn btn-lg bg-purple no-hover make-me-green">
+                .make-me-green
+              </button>
+            </div>
+
+<pre>
+<code class="code-big">
+  $j(".append-to-me").append("and a pony");
+</code>
+</pre>
+
+            <div class="well clearfix">
+              <button class="btn btn-lg bg-purple no-hover append-to-me">
+                I would like kittens
+              </button>
+              <button class="btn btn-lg bg-purple no-hover append-to-me">
+                I would like ice cream
+              </button>
+              <button class="btn btn-lg bg-purple no-hover append-to-me">
+                I would like a day at the beach
+              </button>
+              <button class="btn btn-lg bg-purple no-hover append-to-me">
+                I would like a usable, affordable library ebook ecosystem
+              </button>
+            </div>
+            
+            <p>
+              (Wait, <mark>.append( )</mark> is new! Can you describe what it
+              does? Do you see why having thoughtful names for your
+              functions and variables makes everyone's lives easier?)
+            </p>
+            
+            <p>
+              (As ever, you can read complete documentation for .append( )
+              at <a href="http://api.jquery.com/append/">http://api.jquery.com/append/</a>.)
+            </p>
+
+<pre>
+<code class="code-big">
+  $j(".make-me-italic").css("font-style", "italic");
+</code>
+</pre>
+            <div class="well clearfix">
+              <button class="btn btn-lg bg-purple no-hover make-me-italic">
+                .make-me-italic
+              </button>
+              <button class="btn btn-lg bg-purple no-hover make-me-italic">
+                .make-me-italic
+              </button>
+              <button class="btn btn-lg bg-purple no-hover make-me-italic">
+                .make-me-italic
+              </button>
+              <button class="btn btn-lg bg-purple no-hover make-me-italic">
+                .make-me-italic
+              </button>
+            </div>
+          </div>
+          <!-- end loops in action practice div -->
+
+          <!-- begin more useful loops div -->
+          <div>
+            <h3>More useful loops</h3>
+            
+            <p>
+              Yay, you've written your first loops!  But you might have been
+              asking...why did we need to do that instead of just writing
+              things the old way?
+            </p>
+            
+            <p>
+              And you'd be right. The real power of loops comes when you 
+              might need to make <em>decisions</em> about each item in
+              the loop.  That's what makes loops better than Dr. Badplan.
+              So let's look at a situation where we need to make decisions.
+            </p>
+            
+            <p>
+              What will this code do? (Note: rgb(252, 214, 126) is this 
+              page's yellow and rgb(178, 184, 74) is this page's green.
+              Even though my stylesheet uses hex colors, the .css( )
+              function returns an rgb value -- why is this important for the 
+              code below?)
+            </p>
+
+<pre>
+<code class="code-big">
+  $j(".conditional-loops-1").each(function() {
+    if ($j(this).css("background-color") == "rgb(252, 214, 126)") {
+      $j(this).css("background-color", "rgb(178, 184, 74)");
+    } else if ($j(this).css("background-color") == "rgb(178, 184, 74)") {
+      $j(this).css("background-color", "rgb(252, 214, 126)");
+    };
+  });
+</code>
+</pre>
+            <div class="well clearfix">
+              <button class="btn btn-lg bg-purple no-hover conditional-loops-1">
+              </button>
+              <button class="btn btn-lg bg-yellow no-hover conditional-loops-1">
+              </button>
+              <button class="btn btn-lg bg-green no-hover conditional-loops-1">
+              </button>
+              <button class="btn btn-lg bg-yellow no-hover conditional-loops-1">
+              </button>
+              <button class="btn btn-lg bg-purple no-hover conditional-loops-1">
+              </button>
+              <button class="btn btn-lg bg-green no-hover conditional-loops-1">
+              </button>
+            </div>
+            
+            <p>
+              One more example. This uses a new function, <mark>.html( )</mark>.
+              .html( ) can do two things:
+              
+              <ul>
+                <li>
+                  <em>Without</em> an argument, .html( ) returns the HTML
+                  contents of the element under consideration. If
+                  myDiv equals <code>&lt;div&gt;&lt;p&gt;stuff&lt;/p&gt;&lt;/div&gt;</code>,
+                  then myDiv.html() equals <code>&lt;p&gt;stuff&lt;/p&gt;</code>.
+                </li>
+                <li>
+                  <em>With</em> an argument, .html( ) replaces the element's
+                  contents with that argument. So myDiv.html('kittens')
+                  removes <code>&lt;p&gt;stuff&lt;/p&gt;</code> and fills
+                  myDiv with <code>kittens</code>.  Yay!
+                </li>
+              </ul>
+              
+              As always, you can read the full documentation at 
+              <a href="http://api.jquery.com/html/">http://api.jquery.com/html/</a>.
+            </p>
+            
+            <p>
+              What will this example do?
+            </p>
+<pre>
+<code class="code-big">
+  $j(".conditional-loops-2").each(function() {
+    if ($j(this).html().indexOf('kittens') >= 0) {
+      $j(this).css("background-image", "url('http://bit.ly/1rECbMl')");
+      $j(this).html(" ");
+    }
+  });
+</code>
+</pre>
+            <div class="well clearfix">
+              <button class="btn btn-lg bg-purple no-hover conditional-loops-2">
+                kittens
+              </button>
+              <button class="btn btn-lg bg-yellow no-hover conditional-loops-2">
+                puppies
+              </button>
+              <button class="btn btn-lg bg-green no-hover conditional-loops-2">
+                puppies
+              </button>
+              <button class="btn btn-lg bg-yellow no-hover conditional-loops-2">
+                no kittens ever
+              </button>
+              <button class="btn btn-lg bg-purple no-hover conditional-loops-2">
+                maybe kittens
+              </button>
+              <button class="btn btn-lg bg-green no-hover conditional-loops-2">
+                slow lorises
+              </button>
+            </div>            
+          </div>
+          <!-- end more useful loops div -->
+
+          <!-- begin practice more useful loops div -->
+          <div>
+            <h3>Your turn!</h3>
+            
+            <p>
+              Write a program that does the following:
+              <ul>
+                <li>
+                  Loops through the books in the following list (each
+                  title is in a <code>span class="practice-loops"</code>);
+                </li>
+                <li>
+                  ...and, if the book is by James S.A. Corey...
+                </li>
+                <li>
+                  ...adds it to the div whose id is <code>holds-list</code>.
+                </li>
+              </ul>
+            </p>
+            
+            <div class="well">
+              <div class="row">
+                <div class="col-md-6">
+                  <h4>Titles list</h4>
+                  <span class="practice-loops">
+                    Title: <em>Leviathan Wakes</em>; Author: James S.A. Corey
+                  </span><br />
+                  <span class="practice-loops">
+                    Title: <em>The Hundred Thousand Kingdoms</em>; Author: N.K. Jemisin
+                  </span><br />
+                  <span class="practice-loops">
+                    Title: <em>Caliban's War</em>; Author: James S.A. Corey
+                  </span><br />
+                  <span class="practice-loops">
+                    Title: <em>Fire Upon the Deep</em>; Author: Vernor Vinge
+                  </span><br />
+                  <span class="practice-loops">
+                    Title: <em>Cibola Burn</em>; Author: James S.A. Corey
+                  </span><br />
+                  <span class="practice-loops">
+                    Title: <em>The Broken Kingdoms</em>; Author: N.K. Jemisin
+                  </span><br />
+                  <span class="practice-loops">
+                    Title: <em>Who Fears Death</em>; Author: Nnedi Okorafor
+                  </span><br />
+                  <span class="practice-loops">
+                    Title: <em>Abbadon's Gate</em>; Author: James S.A. Corey
+                  </span><br />
+                  <span class="practice-loops">
+                    Title: <em>The Kingdom of Gods</em>; Author: N.K. Jemisin
+                  </span><br />
+                  <span class="practice-loops">
+                    Title: <em>Rainbows End</em>; Author: Vernor Vinge
+                  </span><br />
+                </div>
+                <div class="col-md-6">
+                  <h4>Holds list</h4>
+                  <div id="holds-list">
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <p>
+              If you still have time, do whichever of the following sounds
+              more fun:
+            </p>
+            
+            <ul>
+              <li>
+                Think back to those everyday processes that are secretly
+                loops.  How would you write a set of rules to tell a computer
+                how to do some everyday process?  (Especially if it's a process
+                that you do <em>using</em> a computer, but not with a one-click
+                program - something that requires a lot of repetitive steps.) 
+                Don't worry about getting the syntax correct, or the fact that 
+                you don't know a ton of functions yet. Write 
+                <em>pseudocode</em>.  Talk it over with your neighbor. See if 
+                you agree.
+              </li>
+              <li>
+                Real-world records are often kinda messy. Look at the title
+                list below. Which titles would your program work for? Which
+                wouldn't it work for? Why not?  How would you need to update
+                your code to make it work on this list?  (If you want to try
+                writing the code, or it'll be easiest for you to answer the
+                question with some learning-by-doing, go right ahead!)
+              </li>
+            </ul>
+
+            <div class="well">
+              <div class="row">
+                <div class="col-md-6">
+                  <h4>Titles list (messy data)</h4>
+                  <span class="practice-loops">
+                    Title: <em>Leviathan Wakes</em>; Author: James S.A. Corey
+                  </span><br />
+                  <span class="practice-loops">
+                    Title: <em>The Hundred Thousand Kingdoms</em>; Author: N.K. Jemisin
+                  </span><br />
+                  <span class="practice-loops">
+                    Title: <em>Caliban's War</em>; Author: James S. A. Corey
+                  </span><br />
+                  <span class="practice-loops">
+                    Title: <em>Fire Upon the Deep</em>; Author: Vernor Vinge
+                  </span><br />
+                  <span class="practice-loops">
+                    Title: <em>Cibola Burn</em> by James S.A. Corey
+                  </span><br />
+                  <span class="practice-loops">
+                    Title: <em>The Broken Kingdoms</em>; Author: N.K. Jemisin
+                  </span><br />
+                  <span class="practice-loops">
+                    Title: <em>Who Fears Death</em>; Author: Nnedi Okorafor
+                  </span><br />
+                  <span class="practice-loops">
+                    Title: <em>Abbadon's Gate</em>; Author: James S.a. Corey
+                  </span><br />
+                  <span class="practice-loops">
+                    Title: <em>The Kingdom of Gods</em>; Author: N.K. Jemisin
+                  </span><br />
+                  <span class="practice-loops">
+                    Title: <em>Rainbows End</em>; Author: Vernor Vinge
+                  </span><br />
+                </div>
+                <div class="col-md-6">
+                  <h4>Holds list</h4>
+                  <div id="holds-list">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end practice more useful loops div -->
+
+          <!-- begin feedback div -->
+          <div>
+            <h3>I <span class="glyphicon glyphicon-heart"></span> feedback</h3>
+            
+            <p>
+              Before you leave this room, grab two post-it notes.
+              Write on them:
+            </p>
+
+            <ul>
+              <li>
+                Something that worked well for you today
+              </li>
+              <li>
+                Something that could be working better
+              </li>
+            </ul>
+            
+            <p>
+              Stick them in the feedback space before you leave the room.
+            </p>
+          </div>
+          <!-- end feedback div -->
+    
+        </div>
+        <!-- end main content div -->
+      </div>
+      <!-- end main row div -->
+    </div>
+    <!-- end main container div -->
+    
+    <!-- begin footer -->
+    <div id="footer" class="bg-neutral">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <p>
+              <a href="http://andromedayelton.com">Andromeda Yelton</a> <span class="glyphicon glyphicon-star"></span>
+              DLF/Code4Lib DC 2014 <span class="glyphicon glyphicon-star"></span>
+              <a href="https://github.com/thatandromeda/bootstrap-tutorial/tree/gh-pages">Source files</a> 
+              <span class="glyphicon glyphicon-star"></span> 
+              <a href="http://design-seeds.com/index.php/home/entry/color-abstract1">Color scheme</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end footer -->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+  </body>
+</html>

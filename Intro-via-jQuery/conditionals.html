@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Intro to Programming: Loops</title>
+
+    <link rel="stylesheet" href="css/bootstrap-custom/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/custom.css" type="text/css">
+
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans|Enriqueta:700' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <!-- begin header -->
+    <div class="jumbotron bg-purple">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-offset-1 col-md-10">
+            <h1>
+              Introduction to Programming Concepts via jQuery
+            </h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end header -->
+
+    <!-- begin main container div -->
+    <div class="container-fluid">
+      <!-- begin main row div -->
+      <div class="row">
+        <!-- begin main content div -->
+        <div class="col-md-10 col-md-offset-1">
+          <h2>Data types &amp; conditionals</h2>
+          
+          <!-- begin data types definition -->
+          <div>
+            <p>
+              Try typing the following into your console. What do you expect
+              to get? What do you actually get?
+            </p>
+<pre>
+<code class="code-big">
+  2 + 2
+</code>
+</pre>
+
+<pre>
+<code class="code-big">
+  '2' + '2'
+</code>
+</pre>
+
+            <p>
+              What's up with that?
+            </p>
+            
+            <!-- begin no-not-that-Data section -->
+            <div class="clearfix row">
+              <div class="col-md-9 col-sm-8 col-xs-5">
+                <p>
+                  What you're seeing here are your very first <mark>data
+                  types</mark>: in this case, numbers and strings.
+                </p>
+                <p>
+                  The idea of data types covers two things:
+                </p>
+                <ul>
+                  <li>
+                    What an object <em>is</em> -- strings are actually
+                    different sorts of things than numbers;
+                  </li>
+                  <li>
+                    What you can <em>do with it</em>.  Addition is a thing you 
+                    can only do with numbers and concatenation is a thing you
+                    can only do with strings, even though we referred to both
+                    of them above as "+".
+                  </li>
+                </ul>
+              
+                <p>
+                  Just for fun:
+                </p>
+              </div>
+              <div class="col-md-2 col-sm-3 col-xs-6 col-xs-offset-1">
+                <div class="img-thumbnail">
+                  <img class="img-responsive" src="http://upload.wikimedia.org/wikipedia/en/0/09/DataTNG.jpg">
+                  <br/> <span class="small">No, not that Data.</span>
+                </div>
+              </div>
+            </div>
+            <!-- end no-not-that-Data section -->
+<pre>
+<code class="code-big">
+  'two' + 'two'
+</code>
+</pre>
+            <!-- begin extra nerdy data type info -->
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" href="#collapseOne">
+                    Additional nerdy details on types if you want 'em
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                    <span class="glyphicon glyphicon-chevron-up hidden"></span>
+                  </a>
+                </h4>
+              </div>
+              <div id="collapseOne" class="panel-collapse collapse in">
+                <div class="panel-body">
+                  A couple of things that will be important if you work with other
+                  languages, and/or if you really like nerdy details.
+      
+                  <ul>
+                    <li>
+                      Languages don't always use the same names for their data types, but
+                      there are some you'll find in just about every language even
+                      if their names differ.  Strings are ubiquitous. So are numbers -
+                      although Javascript just has one numeric type, <code>Number</code>,
+                      whereas some languages have several types representing different
+                      types of numbers (e.g. Python's <code>int</code>, for integers,
+                      and <code>float</code>, for numbers which may have fractional
+                      parts).  Lots of languages have a data type representing key/value
+                      pairs, but Javascript's is called an <code>associative array</code>
+                      and Python's is called a <code>dict</code> (short for "dictionary",
+                      your favorite key-value pair in everyday life).
+                    </li>
+                    <li>
+                      Key takeaway: don't get too hung up on what the types are called
+                      (and be prepared to look for new terminology if you study a
+                      different language). But do understand the core ideas of what a
+                      data type is and what kinds are out there - you'll see those ideas
+                      in every language.
+                    </li>
+                    <li>
+                      Languages let you define your own data types, too. If you needed
+                      to have a data type "MARC record" that was allowed to have fields
+                      with certain properties, and that had functions like "update"
+                      but didn't have functions like "+" (because what would it even
+                      mean to "+" two MARC records)? You could do that.
+                    </li>
+                    <li>
+                      Languages vary in how up-front they are with you about the
+                      existence of data types, and how much they make you deal with the
+                      data type machinery.  This is good and bad!  For instance,
+                      Javascript lets you define a new variable without defining its
+                      data type (not all languages do this).  This makes it much simpler
+                      to get started, and often faster to write. On the other hand, you
+                      and the computer might end up disagreeing about what kind of
+                      data is in your variable, to unpredictable results.
+                    </li>
+                    <li>
+                      My favorite language is Python, which hides a lot of the data
+                      type machinery - I feel like the language gets out of my way and
+                      just does what I mean to a remarkable extent.  My husband much
+                      prefers C, because its strong typing system keeps him from making
+                      (certain kinds of) mistakes, especially in complex codebases too
+                      large to understand in their entirety.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!-- end extra nerdy data type info -->
+
+          </div>
+          <!-- end data types definition -->
+
+          <!-- begin indexOf() -->
+          <div>
+            <h3>Indexing, programmer-style</h3>
+            
+            <p>
+              One function you can use on strings (but not on numbers!)
+              is <code>indexOf()</code>.
+            </p>
+            
+            <p>
+              This function operates on a string and takes one argument,
+              another string.  It tells you where (or if) the argument 
+              first occurs in your string.  So for example:
+            </p>
+<pre>
+<code class="code-big">
+  'jQuery'.indexOf('Q');
+</code>
+</pre>
+            <p>
+              What got returned when you typed that?
+            </p>
+          
+            <p>
+              A very important thing to notice here is that programmers
+              can't count.  Most programming languages are what's called
+              <mark>zero-indexed</mark>: that means that, when you are
+              counting what position you're at in a string (or other list of
+              values), you start at 0.  In the string <code>jQuery</code>,
+              <code>j</code> is in the 0th position, <code>Q</code> is in
+              the 1st position, and so forth.
+            </p>
+
+            <p>
+              It is easy to end up with so-called <mark>off-by-one
+              errors</mark> when programming, and everyone has.  If you're
+              writing code that's counting things, slicing them, etc., and
+              it's not doing quite what you expect, check for this.
+            </p>
+            
+            <p>
+              Okay, let's try some other examples:
+            </p>
+
+<pre>
+<code class="code-big">
+  'jQuery'.indexOf('ry');
+
+  'Mississippi'.indexOf('i');
+
+  'Mississippi'.indexOf('q');
+
+  'jQuery'.indexOf('q');
+</code>
+</pre>
+          <p>
+            What was up with those?
+          </p>
+
+          <p>
+            We'll be using <code>indexOf()</code> a lot, so make sure you have
+            a good handle on how it behaves.
+          </p>
+          
+          <p>
+            You've probably noticed by now that programmers don't use the word
+            <mark>index</mark> in the same way librarians do, although the
+            meanings are related.  Instead of being a collection of things
+            you might find in a text and the page numbers for where you'd find
+            them, an index is just the number of the location where you'd
+            find a thing.  I might talk about <mark>indexing into</mark>
+            a string or a variable - that means looking at a particular
+            location in that string or variable, as dictated by the index.
+          </p>
+          
+          <p>
+            By the way, you can go in the reverse direction, too &mdash; if
+            you have an index and a string, you can find out what character
+            is at that index in the string.  What do you think these will
+            return?
+          </p>
+<pre>
+<code class="code-big">
+  'jQuery'[0]
+
+  'jQuery'[1]
+
+  'jQuery'[6]
+</code>
+</pre>
+            <p>
+              Did they do what you expected?
+            </p>
+
+            <div class="question-time clearfix">
+          </div>
+          <!-- end indexOf() -->
+          
+          <!-- begin arrays -->
+          <div>
+            <h3>A what? Array!</h3>
+            
+            <div class="row">
+              <div class="col-md-9">
+                <p>
+                  Another data type that's good to know, now that we know about
+                  indexes, is <code>array</code>.
+                </p>
+                
+                <p>
+                  An array is a list of ...stuff. Any kind of stuff! The
+                  stuff can be of type string, or type number, or any other
+                  data type you have lying around.  The different items on
+                  the list don't even have to be of the same type (though
+                  usually they are).
+                </p>
+                
+                <p>
+                  Arrays are ubiquitous in programming because the real
+                  world is full of lists of stuff.  Your ILS contains, in a
+                  sense, a gigantic list of MARC records (and another
+                  gigantic list of patron records, and another of transaction
+                  records, et cetera).  It's just a handy mental model when
+                  we need to keep track of lots of things. As we'll see later,
+                  it's also handy when we need to <em>do stuff</em> to lots
+                  of things.
+                </p>
+              </div>
+              <div class="col-md-3 well">
+                <em>Side note!</em>
+                <p>
+                  I might accidentally call arrays "lists", because that's
+                  what they're called in Python, which is what I usually
+                  program in. You can upbraid me if it confuses you.
+                </p>
+              </div>
+            </div>
+            
+            <p>
+              Here's an example array:
+            </p>
+<pre>
+<code class="code-big">
+  var courseDataTypes = ['string', 'number', 'array', 'boolean']
+</code>
+</pre>
+            <p>
+              Important things to note:
+            </p>
+
+            <ul>
+              <li>
+                The array begins with a <code>[</code> and ends with a
+                <code>]</code>.
+              </li>
+              <li>
+                Its elements are separated by commas.
+              </li>
+              <li>
+                Arrays stay in order.  If we looked at
+                <code>courseDataTypes</code> later, <code>'string'</code>
+                would still be first and <code>'boolean'</code> would still
+                be last.
+              </li>
+            </ul>
+            
+            <p>
+              If you want to access individual elements of an array, you
+              do so with the same indexing you saw above (remember, 
+              zero-based!).  What will these lines return?
+            </p>
+<pre>
+<code class="code-big">
+  courseDataTypes[0]
+
+  courseDataTypes[1]
+
+  courseDataTypes[2]
+
+  courseDataTypes[3]
+</code>
+</pre>
+          </div>
+          <!-- end arrays -->
+
+          <!-- begin split() -->
+          <div>
+            <h3>Time to make a banana split</h3>
+            
+            <p>
+              Now that we know about arrays, we can understand another
+              useful function: <code>split()</code>. The <code>split()</code>
+              function operates on strings and takes one argument: the 
+              character at which you should split the list apart.  It returns 
+              an array of all the substrings that were in between your
+              separator character(s).  This'll be easier to see with an
+              example:
+            </p>
+<pre>
+<code class="code-big">
+  'banana'.split('a')
+</code>
+</pre>
+          <p>
+            Can you explain what just happened there?
+          </p>
+
+          <p>
+            Let's try a few more examples:
+          </p>
+
+<pre>
+<code class="code-big">
+  'banana'.split('n')
+
+  'banana'.split('b')
+
+  'banana'.split('an')
+
+  'banana'.split('')
+
+  'banana'.split('q')
+
+  'banana'.split(2)
+  
+  var myBanana = 'banana'
+  
+  myBanana.split('a')
+</code>
+</pre>
+
+          <p>
+            As you have probably guessed, a useful programming technique,
+            when you're not quite sure how something works, is to try out
+            <mark>edge cases</mark>.  Look for places where the program
+            might do something weird, and see what happens! This will 
+            illuminate the details of its behavior (and whether they match
+            what you expect).
+          </p>
+
+          <p>
+            When you're writing your own programs, it's important to think
+            through all the edge cases that your data or your users might 
+            present you with, and be sure to handle them in some appropriate
+            way. (Or, I should say, it's important to <em>try</em> to think
+            them through; in practice you will probably miss some, 
+            especially if your program has users other than yourself -
+            users are so unpredictable! This is why it's important to test
+            programs, and good if you can revisit and improve them over time.)
+          </p>
+
+          </div>
+          <!-- end split() -->
+
+          <!-- begin booleans -->
+          <div>
+            <h3>All your Boolean search experience pays off</h3>
+            
+            <p>
+              We've seen our first three data types: <code>number</code>,
+              <code>string</code>, and <code>array</code>. Another
+              super-useful one is <code>boolean</code>.
+            </p>
+            
+            <p>
+              Go ahead and guess what two values a boolean variable can have.
+            </p>
+            
+            <p>
+              Once you've guessed, try typing these in:
+            </p>
+<pre>
+<code class="code-big">
+  typeof(true)
+
+  typeof(false)
+
+  typeof(True)
+
+  typeof(False)
+</code>
+</pre>
+            <p>
+              What's up with that?
+            </p>
+            
+            <p>
+              I tried to slip a new function by you there, so let's talk
+              about that too. You probably have already guessed what it means
+              (because descriptive variable &amp; function names are awesome),
+              but let's make that explicit: what does <code>typeof()</code> do?
+            </p>
+            
+            <p>
+              There are other data types we won't be covering today; I'd 
+              rather you understand a few things clearly than many things 
+              poorly. Just be aware that they're out there, and you'll
+              encounter them if you go further in programming.
+            </p>
+
+            <div class="question-time clearfix">
+          </div>
+          <!-- end booleans -->
+
+<!--
+MAKE SURE YOU HAVE ALREADY INTRODUCED....
+.css()
+applying a jquery function to an entire selector - use same example.
+"arguments"
+"return"
+
+Then you can take their definitions out of the functions page (or phrase them
+as review)
+-->
+
+<!--
+TO COVER THIS PAGE:
+* Data types (in javascript, arrrgh)
+  * reinforce variables
+  * strings, numbers, booleans
+    * not doing: arrays; objects
+    * mention object, since they'll see it
+    * (in python arrays=lists and objects=dicts)
+* Booleans and if/then
+-->
+        </div>
+        <!-- end main content div -->
+      </div>
+      <!-- end main row div -->
+    </div>
+    <!-- end main container div -->
+    
+    <!-- begin footer -->
+    <div id="footer" class="bg-neutral">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <p>
+              <a href="http://andromedayelton.com">Andromeda Yelton</a> <span class="glyphicon glyphicon-star"></span>
+              DLF/Code4Lib DC 2014 <span class="glyphicon glyphicon-star"></span>
+              <a href="https://github.com/thatandromeda/bootstrap-tutorial/tree/gh-pages">Source files</a> 
+              <span class="glyphicon glyphicon-star"></span> 
+              <a href="http://design-seeds.com/index.php/home/entry/color-abstract1">Color scheme</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end footer -->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+      var $j = jQuery.noConflict();
+      
+      // Initialize the collapsible element.
+      $j('.collapse').collapse();
+      
+      // Switch the chevron direction on the collapsible menu onclick
+      $j('h4.panel-title a').on('click', function() {
+        $j(this).children('span.glyphicon').toggleClass('hidden');
+      });
+
+      $j(document).on("ready", function () {
+        $j(".question-time").each(function () {
+          $j(this).html('<div class="oversized-and-orange clearfix"><span class="glyphicon glyphicon-question-sign pull-left"></span><div class="text pull-left">Question time!</div></div>');
+        });
+      });
+    </script>
+  </body>
+</html>
