@@ -33,6 +33,13 @@ h3 {
   border-top: 4px solid #b2b84a;
 }
 
+h3.no-bar {
+  margin-top: inherit;
+  padding: inherit;
+  padding-left: 0;
+  border: none;
+}
+
 .jumbotron {
   padding-left: 0;
 }
@@ -216,6 +223,10 @@ strong {
 .conditional-loops-2 {
   width: 320px;
   height: 213px;
+}
+
+.kitten-button {
+  background-image: url('http://bit.ly/1rECbMl');
 }
 
 /* Sticky footer styles

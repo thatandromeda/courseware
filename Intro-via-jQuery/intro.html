@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Intro to Programming: Loops</title>
+
+    <link rel="stylesheet" href="css/bootstrap-custom/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/custom.css" type="text/css">
+
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans|Enriqueta:700' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <!-- begin header -->
+    <div class="jumbotron bg-purple">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-offset-1 col-md-10">
+            <h1>
+              Introduction to Programming Concepts via jQuery
+            </h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end header -->
+
+    <!-- begin main container div -->
+    <div class="container-fluid">
+      <!-- begin main row div -->
+      <div class="row">
+        <!-- begin main content div -->
+        <div class="col-md-10 col-md-offset-1">
+          <!-- begin classroom rules -->
+          <div>
+            <h2>Let's get this party started</h2>
+          
+            <div class="oversized-and-orange">
+              <span class="glyphicon glyphicon-star small"></span>
+              <span class="glyphicon glyphicon-heart"></span>
+              Yay programming!
+              <span class="glyphicon glyphicon-heart"></span>
+              <span class="glyphicon glyphicon-star"></span>
+            </div>
+          
+            <div class="row">
+              <div class="col-md-4">
+                <div class="well">
+                  <h3 class="no-bar">Code of Conduct</h3>
+
+                  <p>
+                    Here's <a href="http://www.diglib.org/about/code-of-conduct/">
+                    DLF's Code of Conduct</a>, if you'd like to review it.
+                  </p>
+                
+                  <img src="http://adainitiative.org/wp-content/uploads/2011/11/adasticker_text2.png"
+                  class="img-responsive img-thumbnail" />
+                  <p>
+                    Learn more about codes of conduct, their history, and
+                    why they matter from the
+                    <a href="http://adainitiative.org/">Ada Initiative</a>.
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div class="well">
+                  <h3 class="no-bar">Classroom Rules</h3>
+                
+                  <p>
+                    <span class="lead">It's okay not to know things.</span>
+                    Some of you may have programmed before; some of you may
+                    not have.  We're at different places on the journey, but all
+                    of us started out not knowing anything about programming.
+                    If you're struggling with something you haven't mastered
+                    yet, that's OK. If you see someone struggling with something
+                    you've mastered previously, don't feign surprise or take
+                    over their keyboard.
+                  </p>
+
+                  <p>
+                    <span class="lead">It's okay to have feelings.</span>
+                    Programming can be really frustrating. Feeling frustrated
+                    doesn't mean you're bad at it. It's okay to persevere
+                    as long as it still feels productive, and get away from
+                    the keyboard for a while when it doesn't. Programming
+                    can be confusing. It can be scary, especially if you
+                    don't see a lot of people like you (whatever that means to
+                    you) among programmers.  It can also be joyful and 
+                    thrilling when you build things that work!
+                  </p>
+
+                  <p>
+                    <span class="lead">We don't leave anyone behind.</span>
+                    Feeling stuck? Put a sticky note on your laptop and someone
+                    will come help. Seeing people who are stuck? Help out.
+                    And watch out for subtle -isms (e.g. "it's so easy even your 
+                    mom could do it"). They leave people behind too.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end classroom rules -->
+
+          <!-- begin dev tools -->
+          <div>
+            <h3>Your developer tools</h3>
+            
+            <p>
+              Your browser has (or can quickly have) a special feature that
+              lets you:
+            </p>
+
+            <ul>
+              <li>
+                Examine the HTML structure of your page in depth;
+              </li>
+              <li>
+                See (and mess around with) the CSS rules that apply to each
+                element;
+              </li>
+              <li>
+                Write and run JavaScript code.
+              </li>
+            </ul>
+            
+            <p>
+              Its name and location are different in different browsers;
+              here are some examples. Spend a few minutes finding <em>your</em>
+              developer tools. <strong>This is critical for the rest of the
+              course</strong>, so if you're having trouble, put a sticky note
+              on your computer and do not let the class go forward until
+              you have gotten help. (Remember: we're not going to leave you
+              behind.)
+            </p>
+            
+            <p>
+              I've given you instructions for all the browsers I have ready
+              access to. You may have a different browser. If that's the
+              case, here are some options:
+            </p>
+            
+            <ul>
+              <li>
+                Read the instructions for the most similar browser (as you
+                will see, all the instructions are fairly similar, so
+                your browser probably works similarly too);
+              </li>
+              <li>
+                Google for (your browser) "developer tools";
+              </li>
+              <li>
+                Ask one of your new friends for help;
+              </li>
+              <li>
+                Put a sticky note on your laptop.
+              </li>
+            </ul>
+            
+            <p>
+              Please tell me what you come up with so I can improve these
+              instructions.
+            </p>
+
+            <!-- begin Chrome instructions -->
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" href="#collapseChrome">
+                    Chrome (OS X)
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                    <span class="glyphicon glyphicon-chevron-up hidden"></span>
+                  </a>
+                </h4>
+              </div>
+              <div id="collapseChrome" class="panel-collapse collapse in">
+                <div class="panel-body">
+                  <p>
+                    Developer tools ( View > Developer > Developer Tools )
+                  </p>
+              
+                  <img class="img-responsive img-thumbnail" src="img/screenshot-chrome.png" />
+              
+                  <p>
+                    The Javascript console is on the Console tab. You can
+                    enter Javascript code by the blue chevron at top and see
+                    the results below it.
+                  </p>
+
+                  <img class="img-responsive img-thumbnail" src="img/screenshot-chrome-console.png" />
+                </div>
+              </div>
+            </div>
+            <!-- end Chrome instructions -->
+
+            <!-- begin Firefox instructions -->
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" href="#collapseFirefox">
+                    Firefox (OS X)
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                    <span class="glyphicon glyphicon-chevron-up hidden"></span>
+                  </a>
+                </h4>
+              </div>
+              <div id="collapseFirefox" class="panel-collapse collapse in">
+                <div class="panel-body">              
+                  <p>
+                    Install the Firebug extension from <a href="https://getfirebug.com/">https://getfirebug.com</a>.
+                  </p>
+              
+                  <p>
+                    Once it's installed, View > Firebug
+                  </p>
+              
+                  <img class="img-responsive img-thumbnail" src="img/screenshot-firefox.png" />
+
+                  <p>
+                    The Javascript console is on the Console tab. You can
+                    enter Javascript code by the blue chevron at bottom and see
+                    the results above it.
+                  </p>
+
+                  <img class="img-responsive img-thumbnail" src="img/screenshot-firefox-console.png" />
+                </div>
+              </div>
+            </div>
+            <!-- end Firefox instructions -->
+
+            <!-- begin Safari instructions -->
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" href="#collapseSafari">
+                    Safari (OS X)
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                    <span class="glyphicon glyphicon-chevron-up hidden"></span>
+                  </a>
+                </h4>
+              </div>
+              <div id="collapseSafari" class="panel-collapse collapse in">
+                <div class="panel-body">
+                  <p>
+                    Web Inspector ( Develop > Show Web Inspector )
+                  </p>
+              
+                  <img class="img-responsive img-thumbnail" src="img/screenshot-safari.png" />
+              
+                  <p>
+                    You can type Javascript code by the little blue chevron at
+                    the bottom and see the results above. You may want to drag
+                    the thin grey bar over this area upward to resize it, so that
+                    you'll have more space for your code.
+                  </p>
+
+                  <img class="img-responsive img-thumbnail" src="img/screenshot-safari-console.png" />
+                </div>
+              </div>
+            </div>
+            <!-- end Safari instructions -->
+
+            <!-- begin IE instructions -->
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" href="#collapseIE">
+                    Internet Explorer (Windows)
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                    <span class="glyphicon glyphicon-chevron-up hidden"></span>
+                  </a>
+                </h4>
+              </div>
+              <div id="collapseIE" class="panel-collapse collapse in">
+                <div class="panel-body">
+                  <p>
+                    Press F12 to access Developer Tools
+                  </p>
+
+                  <p>
+                    The Javascript console is on the Console tab (square with
+                    a chevron in it). You can enter Javascript code by the grey chevron at bottom and see
+                    the results above it.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- begin IE instructions -->
+
+          </div>
+          <!-- end dev tools -->
+
+<!-- to cover this page:
+* classroom culture
+* dev tools - anyone who doesn't have these set up should use a red sticky
+* Selectors, binding, just enough events (only use click for now)
+  * and avoid function signatures here
+* Errors and recovery (alert, page reload, as well as error messages)
+  * have them do something really awful, like convert the background color
+    to black - all the text will become invisible, but you can REVEAL white
+    text that tells them not to panic
+* jQuery docs, and how to read them
+* intro some of the vocabulary, passim
+* Variables
+  * declaration, naming
+  * 'undefined'
+  * SyntaxError illegal ("in my browser it looks like this. it might look a
+    little different in yours.")
+-->
+
+<!--
+MAKE SURE YOU HAVE ALREADY INTRODUCED....
+.addClass(), removeClass, hasClass
+.html()
+applying a jquery function to an entire selector - use same example.
+"arguments"
+"return"
+$j(this)
+
+Then you can take their definitions out of the functions page (or phrase them
+as review)
+
+test all the examples (again)
+-->
+        </div>
+        <!-- end main content div -->
+      </div>
+      <!-- end main row div -->
+    </div>
+    <!-- end main container div -->
+    
+    <!-- begin footer -->
+    <div id="footer" class="bg-neutral">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <p>
+              <a href="http://andromedayelton.com">Andromeda Yelton</a> <span class="glyphicon glyphicon-star"></span>
+              DLF/Code4Lib DC 2014 <span class="glyphicon glyphicon-star"></span>
+              <a href="https://github.com/thatandromeda/bootstrap-tutorial/tree/gh-pages">Source files</a> 
+              <span class="glyphicon glyphicon-star"></span> 
+              <a href="http://design-seeds.com/index.php/home/entry/color-abstract1">Color scheme</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end footer -->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    
+    <script type="text/javascript">
+      var $j = jQuery.noConflict();
+
+      // Initialize the collapsible element.
+      $j('.collapse').collapse();
+      
+      // Switch the chevron direction on the collapsible menu onclick
+      $j('h4.panel-title a').on('click', function() {
+        $j(this).children('span.glyphicon').toggleClass('hidden');
+      });
+    </script>
+  </body>
+</html>

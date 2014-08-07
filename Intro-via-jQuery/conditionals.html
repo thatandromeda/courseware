@@ -520,7 +520,7 @@
             </p>
 <pre>
 <code class="code-big">
-  if ($j('.conditional-button').html().indexOf('ISBN') > 0) {
+  if ( $j('.conditional-button').html().indexOf('ISBN') > 0 ) {
       $j(this).hide();
   }
 </code>
@@ -554,10 +554,10 @@
             </p>
 <pre>
 <code class="code-big">
-  if ($j('.conditional-button2').html().indexOf('ISBN') > 0) {
+  if ( $j('.conditional-button2').html().indexOf('ISBN') > 0 ) {
       $j(this).hide();
   } else {
-      $j(this).css('background-color', '#fcd67e');
+      $j(this).addClass('bg-yellow');
   }
 </code>
 </pre>
@@ -586,7 +586,7 @@
             </p>
 <pre>
 <code class="code-big">
-  if (something is true) {
+  if ( something is true ) {
       // do one thing
   } else {
       // do a different thing
@@ -637,30 +637,10 @@
             </p>
             
             <p>
-              Hex/rgb codes for the colors used in this page:
-            </p>
-            
-            <ul>
-              <li>
-                <em>Purple</em>: #7d3c75 / rgb(125, 60, 117)
-              </li>
-              <li>
-                <em>Yellow</em>: #fcd67e / rgb(252, 214, 126)
-              </li>
-              <li>
-                <em>Green</em>: #b2b84a / rgb(178, 184, 74)
-              </li>
-              <li>
-                <em>Orange</em>: #e67747 / rgb(230, 119, 71)
-              </li>
-            </ul>
-            
-            <p>
-              Your Javascript interpreter doesn't know that #7d3c75 is
-              the same as rgb(125, 60, 117).  If one of them doesn't
-              work, try the other.  (I used hex codes in the stylesheet,
-              but I have to use rgb for Chrome's console to recognize the
-              color.)
+              Reminder: the classes used to control background colors on this
+              page are <code>bg-purple</code>, <code>bg-yellow</code>,
+              <code>bg-green</code>, <code>bg-orange</code>,
+              and <code>bg-lavender</code>.
             </p>
 
             <!-- begin example 1 -->
@@ -693,7 +673,7 @@
 <pre>
 <code>
   $j('.example-1').on('click', function () {
-    if ($j(this) contains the phrase 'go away' ) {
+    if ( $j(this) contains the phrase 'go away' ) {
         hide it
     }
   });
@@ -734,8 +714,8 @@
 <pre>
 <code>
   $j('.example-2').on('click', function () {
-    if ($j(this) has purple background color ) {
-        make its background color green
+    if ( $j(this) is purple ) {
+        make it green
     }
   });
 </code>
@@ -758,10 +738,10 @@
                   <button class="btn btn-lg bg-purple example-3">
                     <br />
                   </button>
-                  <button class="btn btn-lg bg-yellow example-3">
+                  <button class="btn btn-lg bg-green example-3">
                     <br />
                   </button>
-                  <button class="btn btn-lg bg-orange example-3">
+                  <button class="btn btn-lg bg-green example-3">
                     <br />
                   </button>
                   <button class="btn btn-lg bg-green example-3">
@@ -775,7 +755,7 @@
 <pre>
 <code>
   $j('.example-3').on('click', function () {
-    if ($j(this) is purple ) {
+    if ( $j(this) is purple ) {
         make it green
     } else {
         make it orange
@@ -818,9 +798,9 @@
 <pre>
 <code>
   $j('.example-4').on('click', function () {
-    if ($j(this) is purple ) {
+    if ( $j(this) is purple ) {
         make it green
-    } else if ($j(this) is green) {
+    } else if ( $j(this) is green) {
         make it orange
     }
   });
@@ -862,7 +842,7 @@
     var titleList = $j('.example-5-title');
 
     titleList.each(function() {
-      if ($j(this) has an ISBN ) {
+      if ( $j(this) has an ISBN ) {
         remove it from the list
       }
     });
@@ -908,8 +888,8 @@
     var titleList = $j('.example-6-title');
 
     titleList.each(function() {
-      if ($j(this) has an ISBN ) {
-        if (the ISBN starts with 978) {
+      if ( $j(this) has an ISBN ) {
+        if ( the ISBN starts with 978 ) {
           remove the title from the list
         }
       }
@@ -928,32 +908,6 @@
           </div>
           <!-- begin if/else practice-->
 
-<!--
-MAKE SURE YOU HAVE ALREADY INTRODUCED....
-.css()
-.html()
-applying a jquery function to an entire selector - use same example.
-"arguments"
-"return"
-$j(this)
-
-Then you can take their definitions out of the functions page (or phrase them
-as review)
-
-Rewrite all the css() things to addClass/removeClass/hasClass
-test all the conditionals examples
--->
-
-<!--
-TO COVER THIS PAGE:
-* Data types (in javascript, arrrgh)
-  * reinforce variables
-  * strings, numbers, booleans
-    * not doing: arrays; objects
-    * mention object, since they'll see it
-    * (in python arrays=lists and objects=dicts)
-* Booleans and if/then
--->
         </div>
         <!-- end main content div -->
       </div>
@@ -1003,16 +957,16 @@ TO COVER THIS PAGE:
       });
       
       $j('.conditional-button').on('click', function() {
-        if ($j(this).html().indexOf('ISBN') > 0) {
+        if ( $j(this).html().indexOf('ISBN') > 0 ) {
             $j(this).hide();
         }
       });
 
       $j('.conditional-button2').on('click', function() {
-        if ($j(this).html().indexOf('ISBN') > 0) {
+        if ( $j(this).html().indexOf('ISBN') > 0 ) {
             $j(this).hide();
         } else {
-            $j(this).css('background-color', '#fcd67e');
+            $j(this).addClass('bg-yellow');
         }
       });
     </script>

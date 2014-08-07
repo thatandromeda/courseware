@@ -101,7 +101,7 @@
 
             <p>
               <code class="code-big">
-                  $j("#yellow-div").css(<span class="highlight">"background-color", "#7d3c75"</span>);
+                  $j("#yellow-div").<span class="highlight">addClass('bg-purple').removeClass('bg-yellow')</span>;
               </code>
             </p>
         
@@ -144,7 +144,7 @@
 <pre>
 <code class="code-big">
   $j("#yellow-trigger").on("click", function() {
-    $j("#yellow-div").css("background-color", "#7d3c75");
+    $j("#yellow-div").addClass('bg-purple').removeClass('bg-yellow');
   });
 </code>
 </pre>        
@@ -324,9 +324,9 @@
 <code class="code-big">
   $j("#conditional-trigger").on("click", function () {
     if ( $j("#conditional-button-1").html().indexOf("Purple me!") >= 0 ) {
-        $j("#conditional-button-1").css("background-color", "#7d3c75");
+        $j("#conditional-button-1").removeClass('bg-green').addClass('bg-purple');
     } else {
-        $j("#conditional-button-2").css("background-color", "#7d3c75");
+        $j("#conditional-button-2").removeClass('bg-green').addClass('bg-purple');
     }
   });
 </code>
@@ -361,9 +361,9 @@
     var shouldIPurpleIt = $j("#conditional-button-1").html().indexOf("Purple me!");
 
     if ( shouldIPurpleIt >= 0 ) {
-        $j("#conditional-button-1").css("background-color", "#7d3c75");
+        $j("#conditional-button-1").removeClass('bg-green').addClass('bg-purple');
     } else {
-        $j("#conditional-button-2").css("background-color", "#7d3c75");
+        $j("#conditional-button-2").removeClass('bg-green').addClass('bg-purple');
     }
   });
 </code>
@@ -494,7 +494,7 @@
 <code class="code-big">
   $j("#loop-trigger-1").on("click", function() {
     $j(".loop-1").each(function() {
-        $j(this).css("background-color", "#7d3c75");
+        $j(this).removeClass('bg-yellow').addClass('bg-purple');
     });
   });
 </code>
@@ -696,12 +696,12 @@
     $j(".loop-2").each(function() {
         var targetColor = $j(this).html();
         
-        if (targetColor.indexOf('Purple') >= 0) {
-          $j(this).css("background-color", "#7d3c75");
-        } else if (targetColor.indexOf('Orange') >= 0) {
-          $j(this).css("background-color", "#e67747");
-        } else if (targetColor.indexOf('Lavender') >= 0) {
-          $j(this).css("background-color", "#826c9c");
+        if ( targetColor.indexOf('Purple') >= 0 ) {
+          $j(this).removeClass('bg-yellow').addClass('bg-purple');
+        } else if ( targetColor.indexOf('Orange') >= 0 ) {
+          $j(this).removeClass('bg-yellow').addClass('bg-orange');
+        } else if ( targetColor.indexOf('Lavender') >= 0 ) {
+          $j(this).removeClass('bg-yellow').addClass('bg-lavender');
         }
     });
   });
@@ -1149,7 +1149,7 @@ return something; call the function
   * This is where you need the most TAs
 
 MAKE SURE YOU HAVE ALREADY INTRODUCED....
-.css()
+.addClass(), .removeClass(), .hasClass()
 .html()
 .indexOf() and its weirdness
 .each() and $j(this)
@@ -1217,8 +1217,9 @@ MAKE SURE YOU HAVE ALREADY INTRODUCED....
                 </li>
                 <li>
                   JavaScript is <em>case sensitive</em>; variablename
-                  and variableName are different. css() is a function, but
-                  CSS() is not. Have you been consistent in your case usage?
+                  and variableName are different. removeClass() is a function,
+                  but removeclass() is not. Have you been consistent in your
+                  case usage?
                 </li>
                 <li>
                   <code>Uncaught SyntaxError: Unexpected token (</code> or
@@ -1322,14 +1323,14 @@ MAKE SURE YOU HAVE ALREADY INTRODUCED....
       var $j = jQuery.noConflict();
 
       $j("#yellow-trigger").on("click", function() {
-        $j("#yellow-div").css("background-color", "#7d3c75");
+        $j("#yellow-div").removeClass('bg-yellow').addClass('bg-purple');
       });
     </script>
     
     <script type="text/javascript">
       $j("#loop-trigger-1").on("click", function() {
         $j(".loop-1").each(function() {
-            $j(this).css("background-color", "#7d3c75");
+            $j(this).removeClass('bg-yellow').addClass('bg-purple');
         });
       });
     </script>
@@ -1339,9 +1340,9 @@ MAKE SURE YOU HAVE ALREADY INTRODUCED....
 
       $j("#conditional-trigger").on("click", function () {
         if ( $j("#conditional-button-1").html().indexOf("Purple me!") >= 0) {
-            $j("#conditional-button-1").css("background-color", "#7d3c75");
+            $j("#conditional-button-1").removeClass('bg-green').addClass('bg-purple');
         } else {
-            $j("#conditional-button-2").css("background-color", "#7d3c75");
+            $j("#conditional-button-2").removeClass('bg-green').addClass('bg-purple');
         }
       });
     </script>
@@ -1353,12 +1354,12 @@ MAKE SURE YOU HAVE ALREADY INTRODUCED....
         $j(".loop-2").each(function(index) {
             var targetColor = $j(this).html();
         
-            if (targetColor.indexOf('Purple') >= 0) {
-              $j(this).css("background-color", "#7d3c75");
-            } else if (targetColor.indexOf('Orange') >= 0) {
-              $j(this).css("background-color", "#e67747");
-            } else if (targetColor.indexOf('Lavender') >= 0) {
-              $j(this).css("background-color", "#826c9c");
+            if ( targetColor.indexOf('Purple') >= 0 ) {
+              $j(this).removeClass('bg-yellow').addClass('bg-purple');
+            } else if ( targetColor.indexOf('Orange') >= 0 ) {
+              $j(this).removeClass('bg-yellow').addClass('bg-orange');
+            } else if ( targetColor.indexOf('Lavender') >= 0 ) {
+              $j(this).removeClass('bg-yellow').addClass('bg-lavender');
             }
         });
       });

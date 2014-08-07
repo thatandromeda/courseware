@@ -42,7 +42,7 @@
 
 <!--
 MAKE SURE YOU HAVE ALREADY INTRODUCED....
-.css()
+.addClass, removeClass, hasClass
 .indexOf() and its weirdness
 .split()
 applying a jquery function to an entire selector - use same example.
@@ -60,7 +60,7 @@ applying a jquery function to an entire selector - use same example.
             </p>
 <pre>
 <code class="code-big">
-  $j(".make-me-yellow").css("background-color", "#fcd67e");
+  $j(".make-me-yellow").removeClass('bg-purple').addClass('bg-yellow');
 </code>
 </pre>
             <div class="well clearfix">
@@ -213,7 +213,7 @@ applying a jquery function to an entire selector - use same example.
 <pre>
 <code class="code-big">
   $j(".make-me-yellow-loop-version").each(function() {
-    $j(this).css("background-color", "#fcd67e");
+    $j(this).removeClass('bg-purple').addClass('bg-yellow');
   });
 </code>
 </pre>
@@ -290,7 +290,7 @@ applying a jquery function to an entire selector - use same example.
             </p>
 <pre>
 <code class="code-big">
-  $j(".make-me-green").css("background-color", "#b2b84a");
+  $j(".make-me-green").removeClass('bg-purple').addClass('bg-green');
 </code>
 </pre>
 
@@ -343,21 +343,21 @@ applying a jquery function to an entire selector - use same example.
 
 <pre>
 <code class="code-big">
-  $j(".make-me-italic").css("font-style", "italic");
+  $j(".make-me-uppercase").addClass("text-uppercase");
 </code>
 </pre>
             <div class="well clearfix">
-              <button class="btn btn-lg bg-purple no-hover make-me-italic">
-                .make-me-italic
+              <button class="btn btn-lg bg-purple no-hover make-me-uppercase">
+                .make-me-uppercase
               </button>
-              <button class="btn btn-lg bg-purple no-hover make-me-italic">
-                .make-me-italic
+              <button class="btn btn-lg bg-purple no-hover make-me-uppercase">
+                .make-me-uppercase
               </button>
-              <button class="btn btn-lg bg-purple no-hover make-me-italic">
-                .make-me-italic
+              <button class="btn btn-lg bg-purple no-hover make-me-uppercase">
+                .make-me-uppercase
               </button>
-              <button class="btn btn-lg bg-purple no-hover make-me-italic">
-                .make-me-italic
+              <button class="btn btn-lg bg-purple no-hover make-me-uppercase">
+                .make-me-uppercase
               </button>
             </div>
           </div>
@@ -381,20 +381,16 @@ applying a jquery function to an entire selector - use same example.
             </p>
             
             <p>
-              What will this code do? (Note: rgb(252, 214, 126) is this 
-              page's yellow and rgb(178, 184, 74) is this page's green.
-              Even though my stylesheet uses hex colors, the .css( )
-              function returns an rgb value -- why is this important for the 
-              code below?)
+              What will this code do?
             </p>
 
 <pre>
 <code class="code-big">
   $j(".conditional-loops-1").each(function() {
-    if ($j(this).css("background-color") == "rgb(252, 214, 126)") {
-      $j(this).css("background-color", "rgb(178, 184, 74)");
-    } else if ($j(this).css("background-color") == "rgb(178, 184, 74)") {
-      $j(this).css("background-color", "rgb(252, 214, 126)");
+    if ( $j(this).hasClass("bg-yellow") ) {
+      $j(this).removeClass("bg-yellow").addClass("bg-green");
+    } else if ( $j(this)hasClass("bg-green") ) {
+      $j(this).removeClass("bg-green").addClass("bg-yellow");
     };
   });
 </code>
@@ -443,8 +439,8 @@ applying a jquery function to an entire selector - use same example.
 <pre>
 <code class="code-big">
   $j(".conditional-loops-2").each(function() {
-    if ($j(this).html().indexOf('kittens') >= 0) {
-      $j(this).css("background-image", "url('http://bit.ly/1rECbMl')");
+    if ( $j(this).html().indexOf('kittens') >= 0 ) {
+      $j(this).addClass("kitten-button");
       $j(this).html(" ");
     }
   });
