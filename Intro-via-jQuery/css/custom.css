@@ -83,6 +83,26 @@ strong {
   padding-bottom: 6px;
 }
 
+.white-text {
+  color: white;
+}
+
+.reveal {
+  color: white;
+}
+
+.white-text.reveal {
+  color: black;
+}
+
+.prev-next {
+  margin: 20px 0;
+  padding-bottom: auto;
+  color: #999;
+  font-weight: normal;
+  border: 1px solid #999;
+}
+
 /* Misc elements
 -------------------------------------------------- */
 

@@ -98,11 +98,15 @@
                   </p>
 
                   <p>
-                    <span class="lead">We don't leave anyone behind.</span>
-                    Feeling stuck? Put a sticky note on your laptop and someone
-                    will come help. Seeing people who are stuck? Help out.
-                    And watch out for subtle -isms (e.g. "it's so easy even your 
-                    mom could do it"). They leave people behind too.
+                    <span class="lead">We're all in this together.</span>
+                    Programming in the real world is collaborative, and
+                    learning the craft is profoundly social. So ask questions,
+                    help people, and don't let anyone (including yourself!)
+                    get excluded or left behind.  Need help?  Ask someone, or
+                    put a sticky note on your laptop and someone will come
+                    help. Seeing people who are stuck? Help out. And watch out
+                    for subtle -isms (e.g. "it's so easy even your mom could 
+                    do it"). They leave people out too.
                   </p>
                 </div>
               </div>
@@ -110,9 +114,9 @@
           </div>
           <!-- end classroom rules -->
 
-          <!-- begin dev tools -->
+          <!-- begin finding dev tools -->
           <div>
-            <h3>Your developer tools</h3>
+            <h3>Finding your developer tools</h3>
             
             <p>
               Your browser has (or can quickly have) a special feature that
@@ -215,18 +219,14 @@
               <div id="collapseFirefox" class="panel-collapse collapse in">
                 <div class="panel-body">              
                   <p>
-                    Install the Firebug extension from <a href="https://getfirebug.com/">https://getfirebug.com</a>.
-                  </p>
-              
-                  <p>
-                    Once it's installed, View > Firebug
+                    Tools > Web Developer > Web Console
                   </p>
               
                   <img class="img-responsive img-thumbnail" src="img/screenshot-firefox.png" />
 
                   <p>
                     The Javascript console is on the Console tab. You can
-                    enter Javascript code by the blue chevron at bottom and see
+                    enter Javascript code by the blue double chevron at bottom and see
                     the results above it.
                   </p>
 
@@ -296,14 +296,373 @@
             <!-- begin IE instructions -->
 
           </div>
-          <!-- end dev tools -->
+          <!-- end finding dev tools -->
+
+          <!-- begin using dev tools -->
+          <div>
+            <h3>Using your developer tools</h3>
+            
+            <p>
+              Let's try typing some stuff in to our developer consoles to
+              see how they work.
+            </p>
+            
+            <p>
+              Start with this (anything in these big grey boxes is code to
+              type in to your developer console, <em>exactly as it appears,
+              including punctuation and capitalization</em>):
+            </p>
+
+<pre>
+<code class="code-big">
+  2 + 2
+</code>
+</pre>
+
+          <p>
+            Hopefully that did what you expected! If you didn't get 4, 
+            summon help.
+          </p>
+          
+          <p>
+            When you type a <mark>function</mark> into your console, 
+            the console will tell you what it <mark>returns</mark>. Plus
+            is a function: something that takes some input and produces some
+            output.
+          </p>
+
+<pre>
+<code class="code-big">
+  var $j = jQuery.noConflict();
+</code>
+</pre>
+
+            <p>
+              You should see something like this:
+            </p>
+            <img class="img-responsive img-thumbnail" src="img/undefined.png">
+            
+            <p>
+              This is normal.  We gave the computer some input, but it
+              doesn't have any immediate output for us - we didn't ask it
+              to perform any functions - so the return value is
+              <code>undefined</code>.
+            </p>
+            
+            <p>
+              (Also your dev tools probably gave you some autocomplete
+              options. You can use <mark>tab completion</mark> to make
+              typing them super fast. Hooray!)
+            </p>
+
+            <p>
+              So, uh....what <em>was</em> that input, exactly?
+            </p>
+            
+            <p>
+              <code>var</code> means, "let's define a variable".
+            </p>
+            
+            <p>
+              <code>$j</code> is the name of that variable. Looks kind of
+              cryptic, but is a convention for jQuery, so let's go with it.
+            </p>
+            
+            <p>
+              <code>jQuery</code> is a library for Javascript.  Javascript
+              is a programming language that powers a lot of the dynamic
+              elements you see on web pages (and increasingly is used to
+              power stuff behind the scenes, too).  A library is an
+              extension which adds new functions to a language, giving it
+              increased functionality or ease of use. jQuery does a couple
+              of great things which, in my opinion, make it a good
+              introduction to Javascript:
+            </p>
+            
+            <ul>
+              <li>
+                Its functions are named with nice English words that 
+                describe what they do.  (Don't take this for granted! Lots
+                of programs use cryptic variable and function names.) This
+                helps you read code more fluently, even when it's new to you.
+              </li>
+              <li>
+                It's been tested on a lot of browsers and operating systems,
+                so code you write in jQuery is more likely to work for
+                all of your users than code you write without it.
+              </li>
+            </ul>
+            
+            <p>
+              <code>.noConflict()</code> means to use the noConflict function
+              from the jQuery library (the period joins them because of
+              this relationship between them). noConflict generates a new
+              jQuery instance that is separate from any other jQuery 
+              instances that might already be in use on the page &mdash;
+              aka it doesn't conflict with them. This is nice because if
+              several parts of your page use jQuery &mdash; say, code that
+              you wrote and code from a vendor platform you're inserting
+              it into &mdash; you don't want to run into accidental
+              interactions that break stuff.  noConflict() isn't always 
+              necessary, but conflicts are super hard to debug, so it's
+              easiest to be in the habit of using it always.
+            </p>
+            
+            <p>
+              Finally, the <code>;</code> at the end terminates the line.
+              Not all Javascript lines need to end in semicolons, but some
+              do, so again, it's easiest to be in the habit of using them
+              unless you absolutely mustn't (we'll see an example later).
+            </p>
+
+            <p>
+              Now let's type this in (remember, capitalization counts!):
+            </p>
+
+<pre>
+<code class="code-big">
+  var $j = jquery.noConflict();
+</code>
+</pre>
+
+            <p>
+              Doh.
+            </p>
+            
+            <img class="img-responsive img-thumbnail" src="img/reference-error.png">
+            
+            <p>
+              What's up with that?
+            </p>
+            
+            <p>
+              Let's fix it. Press the up arrow - this will give you the last
+              line you typed - very convenient! Then edit it and press
+              enter and see that it works again. Yay!
+            </p>
+
+            <div class="question-time clearfix"></div>
+            
+          </div>
+          <!-- end using dev tools -->
+
+          <!-- begin selectors and utility functions -->
+          <div>
+            <h3>jQuery &amp; selectors (plus some useful functions)</h3>
+            
+            <p>
+              Remember that <code>$j</code> thing? Let's do stuff with it.
+            </p>
+            
+            <p>
+              The basis of jQuery is that you select elements on your page
+              &mdash; using exactly the same syntax you use for CSS
+              selectors &mdash; and then you do stuff to them.  What will
+              this select?
+            </p>
+
+<pre>
+<code class="code-big">
+  $j('div')
+</code>
+</pre>
+
+            <p>
+              (Hey, check out what happened in your console when you pressed
+              enter! What's up with that?)
+            </p>
+
+            <p>
+              Now let's do stuff to this stuff we just selected! Note again
+              the period connecting the function to the $j variable. Remember
+              that $j was a jQuery object; that means it gets to use all the
+              functions in the jQuery library.
+            </p>
+            
+            <p>
+              In jQuery, we often do stuff by adding or removing CSS classes,
+              allowing our CSS rules to do the heavy lifting. What do you
+              suppose this will do?
+            </p>
+
+<pre>
+<code class="code-big">
+  $j('div').addClass('white-text');
+</code>
+</pre>
+            <div class="reveal">
+              <p>
+                Here is an awesome thing about programming. If you don't like
+                what the program did, you can usually undo your work. Let's
+                reload the page now.
+              </p>
+            </div>
+            
+            <p>
+              The classes we will primarily be adding and removing are
+              classes I defined (you can see them in custom.css) that 
+              affect the background colors of objects.  Those classes are:
+            </p>
+            
+            <ul>
+              <li>
+                <code>bg-purple</code>
+              </li>
+              <li>
+                <code>bg-yellow</code>
+              </li>
+              <li>
+                <code>bg-orange</code>
+              </li>
+              <li>
+                <code>bg-green</code>
+              </li>
+              <li>
+                <code>bg-lavender</code>
+              </li>
+            </ul>
+
+            <p>
+              They do what you'd expect:
+            </p>
+
+            <div class="well clearfix">
+              <button class="btn btn-lg bg-purple">.bg-purple</button>
+              <button class="btn btn-lg bg-yellow">.bg-yellow</button>
+              <button class="btn btn-lg bg-orange">.bg-orange</button>
+              <button class="btn btn-lg bg-green">.bg-green</button>
+              <button class="btn btn-lg bg-lavender">.bg-lavender</button>
+            </div>
+            
+            <p>
+              Try this (what will it do?):
+            </p>
+            
+<pre>
+<code class="code-big">
+  $j('#add-remove-example').removeClass('bg-green').addClass('bg-purple');
+</code>
+</pre>
+            <div class="well clearfix">
+              <p class="lead lead-grey">
+                <em>#add-remove-example</em>
+              </p>
+              <button id="add-remove-example" class="btn btn-lg bg-green">
+                Yay examples!
+              </button>
+            </div>
+            
+            <p>
+              What if we just did this instead?
+            </p>
+
+<pre>
+<code class="code-big">
+  $j('#add-remove-example-2').addClass('bg-purple');
+</code>
+</pre>
+            <div class="well clearfix">
+              <p class="lead lead-grey">
+                <em>#add-remove-example-2</em>
+              </p>
+              <button id="add-remove-example-2" class="btn btn-lg bg-green">
+                Yay examples!
+              </button>
+            </div>
+            
+            <p>
+              What's up with that?
+            </p>
+            
+            <p>
+              Here's another handy function. What do you expect these will
+              do?
+            </p>
+
+<pre>
+<code class="code-big">
+  $j('#has-class-example').hasClass('bg-purple');
+  $j('#has-class-example').hasClass('bg-green');
+</code>
+</pre>
+            <div class="well clearfix">
+              <p class="lead lead-grey">
+                <em>#has-class-example</em>
+              </p>
+              <button id="has-class-example" class="btn btn-lg bg-green">
+                Yay examples!
+              </button>
+            </div>
+            
+            <p>
+              How about this?
+            </p>
+
+<pre>
+<code class="code-big">
+  $j('#has-class-example').hasclass('bg-green');
+</code>
+</pre>
+            <p>
+              What's up with that?
+            </p>
+            
+            <p>
+              One last handy function:
+            </p>
+<pre>
+<code class="code-big">
+  $j('#html-example').html();
+  $j('#html-example-2').html();
+</code>
+</pre>
+            <!-- begin html examples -->
+            <div class="row">
+              <div class="col-md-6">
+                <div class="well clearfix">
+                  <p class="lead lead-grey">
+                    <em>#html-example</em>
+                  </p>
+                  <button id="html-example" class="btn btn-lg bg-green">
+                    Lorem ipsum dolor sit amet
+                  </button>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="well clearfix">
+                  <p class="lead lead-grey">
+                    <em>#html-example-2</em>
+                  </p>
+                  <button id="html-example-2" class="btn btn-lg bg-green">
+                    Lorem ipsum dolor sit amet
+                    <ul>
+                      <li>
+                        consectetur adipiscing elit
+                      </li>
+                      <li>
+                        vestibulum convallis nisi
+                      </li>
+                      <li>
+                        at massa euismod ornare
+                      </li>
+                    </ul>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- end html examples -->
+
+            <div class="question-time clearfix"></div>
+          </div>
+          <!-- end selectors and utility functions -->
 
 <!-- to cover this page:
 * classroom culture
 * dev tools - anyone who doesn't have these set up should use a red sticky
 * Selectors, binding, just enough events (only use click for now)
   * and avoid function signatures here
-* Errors and recovery (alert, page reload, as well as error messages)
+* Errors and recovery (page reload, as well as error messages)
   * have them do something really awful, like convert the background color
     to black - all the text will become invisible, but you can REVEAL white
     text that tells them not to panic
@@ -318,18 +677,31 @@
 
 <!--
 MAKE SURE YOU HAVE ALREADY INTRODUCED....
-.addClass(), removeClass, hasClass
-.html()
-applying a jquery function to an entire selector - use same example.
 "arguments"
-"return"
 $j(this)
 
 Then you can take their definitions out of the functions page (or phrase them
 as review)
 
 test all the examples (again)
+
+Add 'previous'/'next' buttons at bottom
+
 -->
+          <!-- begin previous/next buttons -->
+          <div>
+            <a class="pull-left btn btn-lg prev-next" href="index.html">
+              <span class="glyphicon glyphicon-arrow-left"></span>
+              previous
+            </a>
+
+            <a class="pull-right btn btn-lg prev-next" href="conditionals.html">
+              next
+              <span class="glyphicon glyphicon-arrow-right"></span>
+            </a>
+          </div>
+          <!-- end previous/next buttons -->
+
         </div>
         <!-- end main content div -->
       </div>
@@ -343,11 +715,15 @@ test all the examples (again)
         <div class="row">
           <div class="col-md-10 col-md-offset-1">
             <p>
-              <a href="http://andromedayelton.com">Andromeda Yelton</a> <span class="glyphicon glyphicon-star"></span>
-              DLF/Code4Lib DC 2014 <span class="glyphicon glyphicon-star"></span>
+              <a href="http://andromedayelton.com">Andromeda Yelton</a>
+              <span class="glyphicon glyphicon-star"></span>
+              DLF/Code4Lib DC 2014
+              <span class="glyphicon glyphicon-star"></span>
               <a href="https://github.com/thatandromeda/bootstrap-tutorial/tree/gh-pages">Source files</a> 
               <span class="glyphicon glyphicon-star"></span> 
               <a href="http://design-seeds.com/index.php/home/entry/color-abstract1">Color scheme</a>
+              <span class="glyphicon glyphicon-star"></span>
+              <a href="https://api.jquery.com/">jQuery documentation</a>
             </p>
           </div>
         </div>
@@ -362,6 +738,13 @@ test all the examples (again)
     
     <script type="text/javascript">
       var $j = jQuery.noConflict();
+
+      // Consistent formatting for question-time divs
+      $j(document).on("ready", function () {
+        $j(".question-time").each(function () {
+          $j(this).html('<div class="oversized-and-orange clearfix"><span class="glyphicon glyphicon-question-sign pull-left"></span><div class="text pull-left">Question time!</div></div>');
+        });
+      });
 
       // Initialize the collapsible element.
       $j('.collapse').collapse();
