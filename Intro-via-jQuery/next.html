@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Introduction to Programming Concepts via jQuery</title>
+
+    <link rel="stylesheet" href="css/bootstrap-custom/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/custom.css" type="text/css">
+
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans|Enriqueta:700' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <!-- begin header -->
+    <div class="jumbotron bg-purple">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-offset-1 col-md-10">
+            <h1>
+              Introduction to Programming Concepts via jQuery
+            </h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end header -->
+
+    <!-- begin main container div -->
+    <div class="container-fluid">
+      <!-- begin main row div -->
+      <div class="row">
+        <!-- begin main content div -->
+        <div class="col-md-10 col-md-offset-1">
+          
+          <!-- begin more learning div -->
+          <div>
+            <h2>Learning more after today</h2>
+          </div>
+          <!-- end more learning div -->
+
+          <!-- begin more practice div -->
+          <div>
+            <h2>More practice</h2>
+            
+            <p>
+              Didn't quite get hang of things, and need time to catch up?
+              Think you got it, but want more practice so it sticks?
+              Loved the exercises and want some additional challenge?
+              These are all great, and you're in the right place.
+            </p>
+            
+            <p>
+              Start at whichever step looks like the right place for you,
+              and feel free to move around the room to sit with other people
+              working on the same steps.
+            </p>
+            
+            <p>
+              You probably won't finish everything on this page, and that's
+              fine.  If I wrote so few that you run out, I messed up &#9786;.
+            </p>
+          </div>
+          <!-- end more practice div -->
+
+          <!-- begin step 1 -->
+          <div>
+            <h3>Step 1: catch up/review</h3>
+
+            <p>
+              Start here if you didn't get through all the exercises in
+              the previous pages, or if there were some that you don't
+              feel confident about.
+            </p>
+
+            <ul>
+              <li>
+                Finish any exercises from previous sections that you didn't
+                finish.
+              </li>
+              <li>
+                If there were any you finished but didn't understand, get
+                help!
+              </li>
+            </ul>
+            
+            <p>
+              The rest of the exercises on this page will build on those
+              earlier ones, so you'll be happiest if you make sure you have
+              a solid grasp on them.
+            </p>
+          </div>
+          <!-- end step 1 -->
+
+          <!-- begin step 2 -->
+          <div>
+            <h3>Step 2: extend the examples</h3>
+            
+            <p>
+              One great way to expand your programming skills is to take
+              something you've already written and make it just a little bit
+              better.  What does "better" mean? Could be lots of things! For
+              example:
+            </p>
+            
+            <ul>
+              <li>
+                Easier to read (clearer variable and function names;
+                explanatory comments; simpler logic, if possible)
+              </li>
+              <li>
+                Able to handle more edge cases
+              </li>
+              <li>
+                Better at responding to errors
+              </li>
+              <li>
+                More general: able to handle a wider variety of inputs and
+                situations
+              </li>
+            </ul>
+            
+            <p>
+              So, let's extend some work you've already done. Here are some
+              ideas.
+            </p>
+
+            <!-- begin functions redux -->
+            <p>
+              From the <a href="functions.html">functions page</a>:
+            </p>
+
+            <ul>
+              <li>
+                Write a function that makes <code>#loop-trigger-1</code> 
+                change the buttons to purple if they're yellow, and then
+                change back to yellow if they're purple.  (You can do this
+                with the functions you've already encountered; you might
+                also try writing it with <code>toggleClass()</code>. Check
+                out the jQuery documentation (linked from the bottom of the
+                page) for details.
+              </li>
+              <li>
+                Write a function that makes <code>#loop-trigger-1</code>
+                change every <em>other</em> button purple.  This is the kind
+                of logic that comes up a lot in web development (e.g. where
+                you might want to color every other line of a table). A few
+                things you will need to know for this:
+                <ul>
+                  <li>
+                    You'll need to define a counter variable which you set 
+                    equal to 0, and then add one to it every time through the
+                    loop.  (This counter variable idiom is super common in
+                    programming, too.)
+                  </li>
+                  <li>
+                    Assuming your counter variable is named
+                    <code>counter</code>, then <code>counter % 2</code>
+                    will return 0 if <code>counter</code> is even and 1
+                    if <code>counter</code> is odd. (For those of you who
+                    like math: <code>%</code> is the modulus operator, so
+                    <code>x % y</code> is x mod y.  If you don't like math,
+                    don't worry; you don't need to understand this
+                    parenthesis for your program to work.)
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <!-- end functions redux -->
+
+            <!-- begin loops redux -->
+            <p>
+              From the <a href="loops.html">loops page</a>:
+            </p>
+
+            <ul>
+              <li>
+              </li>
+            </ul>
+            <!-- end loops redux -->
+
+            <!-- begin conditionals redux -->
+            <p>
+              From the <a href="conditionals.html">conditionals page</a>:
+            </p>
+            
+            <ul>
+              <li>
+                Handle ISBNs a bit better. Don't just flag things missing
+                an "ISBN:"; also flag things that have an ISBN that can't
+                be valid.  There are a lot of rules governing ISBN validity
+                (and if you want to really do this right you'll need to
+                learn <a href="http://regexcrossword.com/">regular
+                expressions</a>), but one quick-and-dirty rule for now is that
+                ISBN-13s start with 978 or 979.
+              </li>
+            </ul>
+            <!-- end conditionals redux -->
+
+          </div>
+          <!-- end step 2 -->
+
+          <!-- begin step 3 -->
+          <div>
+            <h3>Step 3: make new stuff!</h3>
+            
+            <p>
+              Here are some new challenges that build on what you've seen
+              before. These problems don't have one right answer, and that's
+              fine! Remember, it's generally easiest to build the smallest
+              thing you can get working first, and expand from there. 
+              You'll also be happiest if you write your code in a text
+              editor and copy-paste it into your browser for testing.
+            </p>
+            
+            <ul>
+              <li>
+                Below, there's a longer, dirtier set of book data than what 
+                we've seen before. Write a program to flag problematic records.
+                (What does "problematic" mean? Read the data and decide
+                for yourself.  In the real world, you'd probably have a 
+                much larger data set and you'd read a sample of it.)
+              </li>
+              <li>
+                Make <a href="http://library.minlib.net/search/">my public
+                library's catalog</a> look better. Those
+                <code>&lt;strong&gt;</code> elements serving as headers -
+                wouldn't they be nicer with a different font and a larger
+                font-size? That navigation bar with the languages - can
+                we increased the contrast between the text and the
+                background color for better accessibility?  What do
+                <em>you</em> think would help?  Some things to know here:
+                <ul>
+                  <li>
+                    Because you can't write a new stylesheet and add it
+                    into the page source, you'll need to use jQuery's
+                    <a href="https://api.jquery.com/css/">.css()</a>
+                    function to change how elements are styled rather than
+                    adding and removing classes.
+                  </li>
+                  <li>
+                    You will have to read the HTML source of the document,
+                    or use your developer tools, to figure out which 
+                    selectors to bind your functions to.
+                  </li>
+                  <li>
+                    This challenge is particularly well-suited to teams whose
+                    members have complementary skillsets. If you have one 
+                    person who's strong in jQuery, another who's good with 
+                    HTML and CSS, and another with excellent design sense, you
+                    can do killer work. (Most real-world tech projects of
+                    any size are team projects, in part for this reason.)
+                  </li>
+                  <li>
+                    You <em>can</em> use this technique to make your own
+                    catalog look better, even if you can't alter its HTML,
+                    as long as you can insert some javascript (and ideally
+                    a link to an additional stylesheet) somewhere on the
+                    page.  <a href="https://github.com/gvsulib/360Link-Reset">Here's
+                    a real-world example.</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Heck &mdash; make <em>your</em> catalog look better.
+                Or if you're frustrated by the limitations of your
+                third-party software, make yourself feel better by doing
+                horrible things to it with jQuery. That's cool too.
+              </li>
+            </ul>
+            
+            <!-- begin dirty data -->
+            <div class="well clearfix">
+              <p class="lead lead-grey">
+                <em>.dirty-data</em>
+              </p>
+
+              <span class="dirty-data">Author: Marcus Sakey; Title: 
+              <em>Brilliance</em>; ISBN: 9781611099690</span>
+              <br /><br />
+              <span class="dirty-data">Author: Julia Serano; Title:
+              <em>Whipping Girl: A Transsexual Woman on Sexism and the
+              Scapegoating of Femininity</em></span>
+              <br /><br />
+              <span class="dirty-data">Author: Alfred Lubrano; Title:
+              <em>Limbo: Blue-Collar Roots, White-Collar Dreams</em>;
+              ISBN: 34870005769746</span>
+              <br /><br />
+              <span class="dirty-data">Author: Alice Goffman; Title: 
+              <em>On the Run: Fugitive Life in an American City</em>;
+              ISBN: 9780226136714</span><br /><br />
+              <span class="dirty-data">Authors: Matthew S. Rotundo,
+              Kam Oi Lee; John P.Murphy; Title: <em>Alembical 3</em>;
+              ISBN 978-0-9887587-5-9</span>
+              <br /><br />
+              <span class="dirty-data">Editors: Andy Oram & Greg Wilson;
+              Title: <em>Beautiful Code</em>; ISBN: 9780226136714</span>
+              <br /><br />
+              <span class="dirty-data">Author: Chimimanda Ngozi Adichie;
+              Title: <em>Americanah</em>; ISBN: 9770307397911</span>
+              <br /><br />
+              <span class="dirty-data">Author: Robert B. Parker;
+              Title: <em>The Widening Gyre</em>; ISBN: 0440195357</span>
+              <br /><br />
+              <span class="dirty-data">Author: Cherie Priest;
+              Title: <em>Boneshaker</em>; ISBN: 978076531841</span>
+              <br /><br />
+              <span class="dirty-data">Author: Alexis de Tocqueville;
+              Title: <em>Democracy in America</em>; ISBN: 0226805328</span>
+              <br /><br />
+              <span class="dirty-data">Author: Jane Jacobs;
+              Title: <em>The Death and Life of Great American Cities</em>;
+              ISBN: 0375508732</span>
+              <br /><br />
+              <span class="dirty-data">Author: Michael Pollan;
+              Title: <em>The Botany of Desire</em>;
+              ISBN: 0375501290</span>
+              <br /><br />
+              <span class="dirty-data">Author: Sudhir ALladi Venkatesh;
+              Title: Off the Books; ISBN: 978-0-674-02355-0</span>
+              <br /><br />
+              <span class="dirty-data">Author: Henry Hazlitt;
+              Title: <em>Economics in One Lesson</em>; ISBN:
+              05175482322</span>
+              <br /><br />
+              <span class="dirty-data">Author: Naomi Kritzer;
+              Title: <em>Freedom's Sisters</em>; ISBN:
+              978055356756</span>
+              <br /><br />
+              <span class="dirty-data">Author: Apostolos Doxiasis and Christos
+              H. Papadimitriou; Title: <em>Logicomix</em>; ISBN:
+              978159914520</span>
+              <br /><br />
+              <span class="dirty-data">Author: Rainbows End; Title: 
+              <em>Vernor Vinge</em>; ISBN: 9780812536362</span>
+              <br /><br />
+            </div>
+            <!-- end dirty data -->
+          </div>
+
+          <!-- begin previous/next buttons -->
+          <div>
+            <a class="pull-left btn btn-lg prev-next" href="functions.html">
+              <span class="glyphicon glyphicon-arrow-left"></span>
+              previous
+            </a>
+
+            <a class="pull-right btn btn-lg prev-next" href="index.html">
+              next
+              <span class="glyphicon glyphicon-arrow-right"></span>
+            </a>
+          </div>
+          <!-- end previous/next buttons -->
+
+        </div>
+        <!-- end main content div -->
+      </div>
+      <!-- end main row div -->
+    </div>
+    <!-- end main container div -->
+
+<!--
+  TODO this page
+
+how to learn next. medium essay. documentation. projects. mentors.
+o'reilly books.
+
+Anything from previous steps you are not up for!
+
+Extensions on the first set of exercises -go farther with ISBN validation, dirtier and longer data
+
+Reskin a real catalog site (extra good for working together)
+-->
+    
+    <!-- begin footer -->
+    <div id="footer" class="bg-neutral">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <p>
+              <a href="http://andromedayelton.com">Andromeda Yelton</a>
+              <span class="glyphicon glyphicon-star"></span>
+              DLF/Code4Lib DC 2014
+              <span class="glyphicon glyphicon-star"></span>
+              <a href="https://github.com/thatandromeda/bootstrap-tutorial/tree/gh-pages">Source files</a> 
+              <span class="glyphicon glyphicon-star"></span> 
+              <a href="http://design-seeds.com/index.php/home/entry/color-abstract1">Color scheme</a>
+              <span class="glyphicon glyphicon-star"></span>
+              <a href="https://api.jquery.com/">jQuery documentation</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end footer -->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  </body>
+</html>
