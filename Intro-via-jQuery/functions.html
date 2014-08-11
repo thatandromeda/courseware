@@ -163,12 +163,28 @@
         
             <p>
               <code>$j("#yellow-trigger")</code> tells us what element
-              to <em>bind</em> our function to.
+              to <mark>bind</mark> our function to.  (Binding means that
+              this element can trigger the function, and other elements
+              can't.)
             </p>
         
             <p>
-              <code>.on(...);</code> is a jQuery function that <em>attaches</em>
-              an <em>event handler</em> to an element.  It takes two arguments:
+              <code>.on(...);</code> is a jQuery function that attaches
+              an <mark>event handler</mark> to an element.  An event handler
+              is, quite literally, a function that tells your browser how
+              to handle particular events &mdash; what to do when 
+              specific things happen. The event you'll see handled most often 
+              is <code>click</code>; we'll be telling the browser what to
+              do when people click on things. Other javascript events
+              include <code>mouseenter</code>, <code>mouseleave</code>,
+              <code>submit</code>, <code>keypress</code>...various ways
+              people can interact with browser content. You can read more
+              in the <a href="https://api.jquery.com/category/events/">jQuery
+              documentation on event handling</a>.
+            </p>
+            
+            <p>
+              Back to <code>.on()</code>! It takes two arguments:
             </p>
         
             <ul>
@@ -378,7 +394,10 @@
             <h3>Your turn</h3>
             <p>
               As always, decide what you think <em>should</em> happen
-              before you write any code.
+              before you write any code. And don't forget to type in
+              <code>var $j = jQuery.noConflict();</code> first, just in 
+              case. (You only need to do this the first time you load the
+              page.)
             </p>
             <ol>
               <li>
@@ -805,6 +824,8 @@
                 Write a function that, when you click on #trigger-5, 
                 looks at all the .trigger-5 buttons and, if they're
                 green, appends their contents to the #trigger-5-results-div.
+                (Need a refresher on <code>.append()</code>? We used an
+                example on the <a href="loops.html">loops page</a>.)
               </li>
               <li>
                 Write a function that, when you click on #trigger-6,
@@ -1246,7 +1267,7 @@ MAKE SURE YOU HAVE ALREADY INTRODUCED....
               <ul>
                 <li>
                   Type your function into the console a little at a time.
-                  Try just the selector that you're binding your funciton
+                  Try just the selector that you're binding your function
                   to - is it grabbing the right piece of HTML? Try leaving
                   out the on("click") outer shell and just writing 
                   a line in the middle of the function - does it make the

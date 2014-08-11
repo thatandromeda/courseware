@@ -195,8 +195,9 @@
               
                   <p>
                     The Javascript console is on the Console tab. You can
-                    enter Javascript code by the blue chevron at top and see
-                    the results below it.
+                    enter Javascript code by the blue chevron at top 
+                    (<span class="glyphicon glyphicon-chevron-right text-info small"></span>)
+                    and see getthe results below it.
                   </p>
 
                   <img class="img-responsive img-thumbnail" src="img/screenshot-chrome-console.png" />
@@ -226,8 +227,10 @@
 
                   <p>
                     The Javascript console is on the Console tab. You can
-                    enter Javascript code by the blue double chevron at bottom and see
-                    the results above it.
+                    enter Javascript code by the blue double chevron at bottom
+                    (<span class="glyphicon glyphicon-chevron-right text-info small"></span>
+                    <span class="glyphicon glyphicon-chevron-right text-info small"></span>)
+                    and see the results above it.
                   </p>
 
                   <img class="img-responsive img-thumbnail" src="img/screenshot-firefox-console.png" />
@@ -257,7 +260,8 @@
               
                   <p>
                     You can type Javascript code by the little blue chevron at
-                    the bottom and see the results above. You may want to drag
+                    the bottom (<span class="glyphicon glyphicon-chevron-right text-info small"></span>)
+                    and see the results above. You may want to drag
                     the thin grey bar over this area upward to resize it, so that
                     you'll have more space for your code.
                   </p>
@@ -287,8 +291,9 @@
 
                   <p>
                     The Javascript console is on the Console tab (square with
-                    a chevron in it). You can enter Javascript code by the grey chevron at bottom and see
-                    the results above it.
+                    a chevron (<span class="glyphicon glyphicon-chevron-right text-info small"></span>) 
+                    in it). You can enter Javascript code by the grey chevron 
+                    at bottom and see the results above it.
                   </p>
                 </div>
               </div>
@@ -399,13 +404,30 @@
               this relationship between them). noConflict generates a new
               jQuery instance that is separate from any other jQuery 
               instances that might already be in use on the page &mdash;
-              aka it doesn't conflict with them. This is nice because if
-              several parts of your page use jQuery &mdash; say, code that
-              you wrote and code from a vendor platform you're inserting
-              it into &mdash; you don't want to run into accidental
-              interactions that break stuff.  noConflict() isn't always 
-              necessary, but conflicts are super hard to debug, so it's
-              easiest to be in the habit of using it always.
+              aka it doesn't conflict with them.
+            </p>
+            
+            <p>
+              (The formal definition of "instance" is complicated, but you
+              can think of it as a specific example of a more general
+              class of things. Lots of web sites use jQuery to do things, but
+              the specific instance of jQuery that <em>you</em> are going to be
+              using, to exercise functions on <em>your</em> web page, is
+              different from the one everyone else on earth is using &mdash;
+              even classmates looking at their own copies of the same page!
+              If you're a FRBR nerd, think of an instance as an item,
+              representative of some larger work (jQuery), but distinct from 
+              other items.)
+            </p>
+              
+            </p>
+              Having your own instance of jQuery is nice because if several 
+              parts of your page use jQuery &mdash; say, code that you wrote 
+              and code from a vendor-provided web page you're inserting it 
+              into &mdash; you don't want to run into  accidental interactions 
+              that break stuff.  noConflict() isn't always necessary, but 
+              conflicts are  super hard to debug, so it's easiest to be in the 
+              habit of using it always.
             </p>
             
             <p>
@@ -457,8 +479,22 @@
             <p>
               The basis of jQuery is that you select elements on your page
               &mdash; using exactly the same syntax you use for CSS
-              selectors &mdash; and then you do stuff to them.  What will
-              this select?
+              selectors &mdash; and then you do stuff to them.
+            </p>
+            
+            <p>
+              (I am assuming you have some comfort with CSS. You don't need
+              to be a ninja; you do need to know how to write CSS rules
+              that apply to a given element, class, or ID. If you don't,
+              ask a friend to help you with the CSS parts. You do <em>not</em>
+              need to know CSS to understand how the programming ideas in
+              this course work; you will need to read and write a few short 
+              CSS selectors in the course of reading and writing programs,
+              and it is fine to get help with that.)
+            </p>
+
+            <p>
+              What will this select?
             </p>
 
 <pre>
@@ -535,6 +571,35 @@
             </div>
             
             <p>
+              You can apply them to anything you like, such as...
+            </p>
+            
+            <ul>
+              <li>
+                $j('div') &mdash; what does this mean again? What would
+                $j('a') mean? Or $j('h3')?
+              </li>
+              <li>
+                $j('.well') &mdash; every element which has the class of
+                <code>well</code>
+              </li>
+              <li>
+                $j('#add-remove-example') &mdash; the element whose ID is
+                <code>add-remove-example</code> (there should be at most one 
+                element with a given ID per page, remember - this is a useful
+                way to specfically target your jQuery functions)
+              </li>
+              <li>
+                $j('div.code-big') &mdash; all divs whose class is
+                <code>code-big</code>
+              </li>
+            </ul>
+            
+            <p>
+              Feel free to experiment.
+            </p>
+
+            <p>
               Try this (what will it do?):
             </p>
             
@@ -551,6 +616,16 @@
                 Yay examples!
               </button>
             </div>
+            
+            <p>
+              (As you probably just guessed, a convention I'll be using
+              is that I'll put example elements inside these grey-bordered
+              boxes, and I'll put the name of their class or ID above them
+              in grey text.  So in this case, there's a button with the
+              ID of <code>add-remove-example</code> in the box above. Of
+              course, you could use your developer tools or view source to
+              figure that out for yourself, too. This just seemed faster.)
+            </p>
             
             <p>
               What if we just did this instead?
@@ -660,34 +735,6 @@
 
 <!--
 test all the examples (again)
-
-look at how you've handled $j(this)
-
-add chevron image by word "chevron" in dev instructions
-
-look for the word "instance", define if needed
-
-"documentation for .append()": apply code highlighting
-
-make sure you explained "arguments" - you define in functions.html but
-use earlier
-
-make sure you have talked clearly enough about selectors - how do you
-find the div whose ID is foo?
-
-define "bind" and "event handler" and maybe try to suck less about them
-
-check for noConflict() reminder passim
-
-"appends their contents to the #trigger-5-results-div. "  - make sure you have
-covered how to append to a specific div
-also in that page make sure people are testing for classes, not background
-colors/hex colors
-
-"funciton"
-
-be more explicit about CSS prerequisite and provide some online and
-your-friends fallback options
 
 add medium article somewhere
 -->

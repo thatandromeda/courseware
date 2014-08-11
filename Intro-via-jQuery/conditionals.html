@@ -182,11 +182,27 @@
               One function you can use on strings (but not on numbers!)
               is <code>indexOf()</code>.
             </p>
-            
+                        
             <p>
               This function operates on a string and takes one argument,
-              another string.  It tells you where (or if) the argument 
-              first occurs in your string.  So for example:
+              another string.  And <mark>argument</mark> is a new term, so
+              let's define it! An argument is an input that you stick into
+              a function, and in many programming languages arguments go
+              inside the parentheses that follow functions.  Some functions
+              (like <code>noConflict()</code>) don't take any arguments.
+              Others take one, or several. Arguments may be optional (in 
+              which case the function will do something logical whether or
+              not you provide them) or required (in which case you will see
+              some kind of error message if you don't provide them). It
+              all depends on what the function does and what kind of
+              information it needs to do that.
+            </p>
+            
+            <p>
+              Getting back to <code>indexOf()</code>: it operates on a
+              string and takes one argument, another string. It tells you 
+              where (or if) the argument first occurs in your string.  So for 
+              example:
             </p>
 <pre>
 <code class="code-big">
@@ -518,6 +534,14 @@
               What will happen with each button? (<code>.hide()</code> does
               what you would guess from the name.)
             </p>
+            
+            <p>
+              By the way, <code>$j(this)</code> is shorthand for "whatever
+              object is under consideration right now". If you have a function
+              that gets called when you click on something, it's the thing
+              you just clicked; that's how we're using it below. We'll see
+              more examples later.
+            </p>
 <pre>
 <code class="code-big">
   if ( $j('.conditional-button').html().indexOf('ISBN') > 0 ) {
@@ -616,7 +640,8 @@
               learned. I've written the outlines; your job is to replace
               the English descriptions with actual code.  Type your code
               into your console and click the buttons - do you get
-              the behavior you expect?
+              the behavior you expect? (Don't forget to define
+              <code>var $j = jQuery.noConflict();</code> first, just in case.)
             </p>
             
             <p>
