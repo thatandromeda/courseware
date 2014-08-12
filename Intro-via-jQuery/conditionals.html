@@ -544,7 +544,7 @@
             </p>
 <pre>
 <code class="code-big">
-  if ( $j('.conditional-button').html().indexOf('ISBN') > 0 ) {
+  if ( $j('.conditional-button').html().indexOf('ISBN') > -1 ) {
       $j(this).hide();
   }
 </code>
@@ -578,7 +578,7 @@
             </p>
 <pre>
 <code class="code-big">
-  if ( $j('.conditional-button2').html().indexOf('ISBN') > 0 ) {
+  if ( $j('.conditional-button2').html().indexOf('ISBN') > -1 ) {
       $j(this).hide();
   } else {
       $j(this).addClass('bg-yellow');
@@ -1006,13 +1006,13 @@
       });
       
       $j('.conditional-button').on('click', function() {
-        if ( $j(this).html().indexOf('ISBN') > 0 ) {
+        if ( $j(this).html().indexOf('ISBN') > -1 ) {
             $j(this).hide();
         }
       });
 
       $j('.conditional-button2').on('click', function() {
-        if ( $j(this).html().indexOf('ISBN') > 0 ) {
+        if ( $j(this).html().indexOf('ISBN') > -1 ) {
             $j(this).hide();
         } else {
             $j(this).addClass('bg-yellow');

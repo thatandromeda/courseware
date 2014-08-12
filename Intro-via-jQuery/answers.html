@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Introduction to Programming Concepts via jQuery</title>
+
+    <link rel="stylesheet" href="css/bootstrap-custom/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/custom.css" type="text/css">
+    <style type="text/css">
+      h4 {
+        margin-top: 2em;
+      }
+    </style>
+
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans|Enriqueta:700' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <!-- begin header -->
+    <div class="jumbotron bg-purple">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-offset-1 col-md-10">
+            <h1>
+              Introduction to Programming Concepts via jQuery
+            </h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end header -->
+
+    <!-- begin main container div -->
+    <div class="container-fluid">
+      <!-- begin main row div -->
+      <div class="row">
+        <!-- begin main content div -->
+        <div class="col-md-10 col-md-offset-1">
+          <h2>Answer key</h2>
+          
+          <p>
+            Here are answers to the problems posed in the course.
+          </p>
+          
+          <p>
+            <strong>Important</strong>: Many programs can be written in
+            more than one way. If your program is different from mine but
+            still gets the right results, it's right.
+          </p>
+          
+          <p>
+            Some ways of writing a program may be faster, more readable,
+            or more elegant, and in that sense better, even if multiple
+            ways are correct.  If ours differ, <em>mine is not necessarily
+            the better version</em>. Think first about whether our logic
+            is different (does it agree by coincidence in this situation, but
+            would not in others? does that matter in this case?)  And then
+            think about what is more readable and aesthetically pleasing to 
+            you.
+          </p>
+          
+          <p>
+            Don't forget: you can view the source of all the pages to see
+            how I wrote the functions that executed when you clicked
+            various buttons, and how I included jQuery and other scripts in
+            the page. (Your developer console is a great place for playing
+            around with code, but if you want your web site users to get
+            the code, it has to be included in your page source somehow.)
+          </p>
+          
+          <!-- begin conditionals page -->
+          <div>
+            <h3>Conditionals page</h3>
+          
+            <h4>Example 1</h4>
+<pre>
+<code class="code-big">
+  $j('.example-1').on('click', function () {
+    if ( $j(this).html().indexOf('go away') >= 0 ) {
+        $j(this).hide();
+    }
+  });
+</code>
+</pre>
+
+            <h4>Example 2</h4>
+<pre>
+<code class="code-big">
+   $j('.example-2').on('click', function () {
+    if ( $j(this).hasClass('bg-purple') ) {
+        $j(this).removeClass('bg-purple').addClass('bg-green');
+    }
+  });
+</code>
+</pre>
+            <ul>
+              <li>
+                Make sure you remove the purple class, not just add the green
+                one. If the button has both bg-purple and bg-green applied to
+                it, it will use rules from both classes (and whichever is in
+                the stylesheet later will override the earlier rules), which
+                may not produce the effect you want.
+              </li>
+              <li>
+                Next steps: you can test for whether elements have specific
+                css properties (like "is the font-size 14px?" rather than
+                "does this have a particular class?") and inject specific
+                CSS statements right into the code with jQuery's
+                <a href="https://api.jquery.com/css/">.css()</a> function.
+                (If you're testing for background-color, you may have to convert
+                from the hex codes in my stylesheet to RGB before it works.)
+              </li>
+            </ul>
+
+            <h4>Example 3</h4>
+<pre>
+<code class="code-big">
+    $j('.example-3').on('click', function () {
+    if ( $j(this).hasClass('bg-purple') ) {
+        $j(this).removeClass('bg-purple').addClass('bg-green');
+    } else {
+        $j(this).removeClass('bg-green').addClass('bg-orange');
+    }
+  });
+</code>
+</pre>
+
+            <ul>
+              <li>
+                In this case, the buttons only have two colors - purple or
+                green - so I know that, if it's not purple, it's green, and
+                the class I need to remove is bg-green. You can easily imagine
+                a more complicated case where the buttons could have many
+                different background colors, and you wouldn't know which you 
+                needed to remove. Options would include:
+                <ul>
+                  <li>
+                    Removing all of bg-green, bg-yellow, and bg-lavender
+                    just in case (if the button doesn't have those classes,
+                    it's fine; you can't remove things that aren't there, so
+                    nothing will happen, which is the desired behavior);
+                  </li>
+                  <li>
+                    Using the <a href="http://api.jquery.com/css">.css()</a>
+                    function to insert CSS directly into the element, overriding 
+                    the stylesheet.
+                  </li>
+                </ul>
+              </li>
+            </ul>
+
+            <h4>Example 4</h4>
+<pre>
+<code class="code-big">
+    $j('.example-4').on('click', function () {
+    if ( $j(this).hasClass('bg-purple') ) {
+        $j(this).removeClass('bg-purple').addClass('bg-green');
+    } else if ( $j(this).hasClass('bg-green')) {
+        $j(this).removeClass('bg-green').addClass('bg-orange');
+    }
+  });
+</code>
+</pre>
+
+            <h4>Example 5</h4>
+<pre>
+<code class="code-big">
+    $j('#example-5-run-button').on('click', function () {
+    var titleList = $j('.example-5-title');
+
+    titleList.each(function() {
+      if ( $j(this).html().indexOf('ISBN') >= 0 ) {
+        $j(this).hide();
+      }
+    });
+  });
+</code>
+</pre>
+
+            <p>
+              Note that this works only because of the way I've formatted
+              the citations, and because there is no record where we have the
+              string "ISBN" but don't have an ISBN.
+            </p>
+          
+            <p>
+              When you're doing data cleanup, it's important to read a
+              representative sample of your records so that you know how
+              <em>your</em> data is shaped: what you need to test for, and 
+              what you don't. It's also important to check your output (either
+              by spot-checking it, or by learning how to write tests) in
+              case you've missed anything, or in case your rules stop applying
+              properly when your data set grows.
+            </p>
+          
+            <p>
+              To do a more general, formally correct version of this, you
+              would need something that checked specifically for the presence
+              of an ISBN in the right part of a record, not for a secondary
+              indicator like the string "ISBN".  The right way to do this would
+              depend on the data you have, but options include:
+            </p>
+          
+            <ul>
+              <li>
+                If parsing MARC records, try
+                <a href="https://github.com/edsu/pymarc">pymarc</a> (for Python)
+                or <a href="https://github.com/ruby-marc/ruby-marc">ruby-marc</a>
+                (for ruby).
+              </li>
+              <li>
+                For cataloging, data cleanup, or text processing problems
+                in general, you will probably find yourself needing to
+                learn regular expressions. These are ways of defining
+                patterns of text that you can then search for.  For example,
+                an ISBN-13 is a 13-digit string of numbers, optionally
+                including hyphens, beginning with 987 or 987. Regular expressions
+                let you translate that previous sentence into a syntax
+                that computers can understand, allowing you to look directly
+                for sequences that can be ISBNs in your record. I don't
+                have a favorite source for learning regexes (and you can
+                librarian one as well as I), but my favorite place to play
+                with them is 
+                <a href="http://regexcrossword.com/">regexcrossword.com</a>.
+              </li>
+            </ul>
+
+            <h4>Example 6</h4>
+<pre>
+<code class="code-big">
+    $j('#example-6-run-button').on('click', function () {
+    var titleList = $j('.example-6-title');
+
+    titleList.each(function() {
+      if ( $j(this).html().indexOf('ISBN: 978') >= 0 ) {
+        $j(this).hide();
+      }
+    });
+  });
+</code>
+</pre>
+
+            <p>
+              As with above, you'd need regular expressions to make it
+              work properly. But some other options you could try are:
+            </p>
+
+            <ul>
+              <li>
+                Do the two nested ifs, as in the conditionals page; test
+                for the ISBNs in one and for <code>: 978</code> or
+                <code> 978</code> (note the space).
+              </li>
+              <li>
+                Use <code>.split()</code> to split apart the records on
+                the string <code>"ISBN: "</code>. This will give you an array
+                with two strings: one with an author/title, and one (possibly
+                empty) with an ISBN.  You can then test the second to see if
+                it starts with 978, thusly:
+              </li>
+            </ul>
+
+<pre>
+<code class="code-big">
+    $j('#example-6-run-button').on('click', function () {
+    var titleList = $j('.example-6-title');
+
+    titleList.each(function() {
+      if ( $j(this).html().indexOf('ISBN') >= 0 ) {
+        var elementsList = $j(this).split('ISBN: ');
+        if (elementsList[1].indexOf('978') == 0) {
+          $j(this).hide();
+        }
+      }
+    });
+  });
+</code>
+</pre>
+
+            <p>
+              Note that I've used a double-equals sign in that last
+              <code>if</code> statement. <code>=</code> assigns a value
+              to a variable; <code>==</code> lets you test if two things are
+              equal. We need to have the different signs because setting
+              something equal to something else, and testing if something is
+              equal to something else, are actually different things.
+            </p>
+          </div>
+          <!-- end conditionals page -->
+
+          <!-- begin loops page -->
+          <div>
+            <h3>Loops page</h3>
+
+            <h4>.make-me-green</h4>
+<pre>
+<code class="code-big">
+  $j(".make-me-green").each(function() {
+    $j(this).removeClass('bg-purple').addClass('bg-green');
+  });
+</code>
+</pre>
+
+            <h4>.append-to-me</h4>
+<pre>
+<code class="code-big">
+  $j(".append-to-me").each(function() {
+    $j(this).append("and a pony");
+  });
+</code>
+</pre>
+
+            <h4>.make-me-uppercase</h4>
+<pre>
+<code class="code-big">
+  $j(".make-me-uppercase").each(function() {
+    $j(this).addClass("text-uppercase");
+  });
+</code>
+</pre>
+
+            <p>
+              <code>text-uppercase</code> is 
+              <a href="http://getbootstrap.com/css/#type-transformation">a class 
+              defined in the Bootstrap CSS framework</a>, which I rely on heavily 
+              for the styling of all my pages.  (It defines typography, layout, 
+              and basic styles for lots of elements, as well as providing a few 
+              useful Javascript components. I've overridden it with my own font 
+              and color choices, as well as defining a few extra things for my own 
+              purposes, but most of the classes you'll see in my pages come from 
+              Bootstrap.)
+            </p>
+          
+            <p>
+              Bootstrap is great for making it look like you know what you're
+              doing with web design even if you don't know what you're doing
+              with web design.  <a href="http://getbootstrap.com/">Its
+              documentation</a> is quite good.  I also did an 
+              <a href="https://thatandromeda.github.io/bootstrap-tutorial/">intro
+              to Bootstrap workshop</a> (which may look quite familiar).
+            </p>
+
+            <h4>Holds list</h4>
+<pre>
+<code class="code-big">
+  $j(".practice-loops").each(function() {
+    if ( $j(this).html().indexOf('James S.A. Corey') >= 0) {
+      $j('#holds-list').append($j(this).html());
+    }
+  });
+</code>
+</pre>
+          
+            <p>
+              This will technically solve the problem, but you'll be happier
+              if you append a linebreak to make it more readable. Here are a
+              couple of equivalent ways to do that.
+            </p>
+
+<pre>
+<code class="code-big">
+  $j(".practice-loops").each(function() {
+    if ( $j(this).html().indexOf('James S.A. Corey') >= 0) {
+      $j('#holds-list').append($j(this).html() + '<br />');
+    }
+  });
+</code>
+</pre>
+
+<pre>
+<code class="code-big">
+  $j(".practice-loops").each(function() {
+    if ( $j(this).html().indexOf('James S.A. Corey') >= 0) {
+      $j('#holds-list').append($j(this).html()).append('<br />');
+    }
+  });
+</code>
+</pre>
+          
+            <p>
+              Fun fact: if you did <code>$j(this)</code> rather than 
+              <code>$j(this).html()</code> in the last example, you'll see
+              that you've not only appended the title to the holds list, but
+              also removed it from the first list. This is because your
+              <code>$j(this)</code> represents <em>the actual HTML element
+              in question</em>, so the append is putting the element itself
+              in a new place. <code>$j(this).html()</code> gives you a copy
+              of the HTML contents of <code>$j(this)</code>, so when you append 
+              it to your holds div, <code>$j(this)</code> stays put;
+              you're just writing a copy of its contents.
+            </p>
+
+            <h4>Holds list (messy data)</h4>
+
+            <p>
+              Several problems here. <code>James S. A. Corey</code> (note the
+              space between the initials) and <code>James S.a. Corey</code> 
+              (capitalization mistake) won't match our earlier rule. You can, 
+              of course, imagine many similar problems (e.g. no space after 
+              second initial; one or both initials omitted; first name also
+              given as initial).
+            </p>
+          
+            <p>
+              The best way to solve this problem <em>in general</em> is
+              regular expressions.  The easiest way to solve it <em>in this
+              case</em> is to test only for the string 'Corey': since we don't
+              have any other authors of that name (or any titles where that
+              string appears!) that will be just fine.  You might also have
+              a series of if statements testing for the various ways the
+              name might appear. (And there are instances where this would
+              be a better choice than regular expressions; there is no
+              pattern you can define that catches both "Mark Twain" and
+              "Samuel Clemens"! Yet you might want to treat those author names
+              the same way.)
+            </p>
+
+<pre>
+<code class="code-big">
+  $j(".practice-loops").each(function() {
+    if ( $j(this).html().indexOf('Corey') >= 0) {
+      $j('#holds-list').append($j(this).html()).append('<br />');
+    }
+  });
+</code>
+</pre>
+          </div>
+          <!-- end loops page -->
+          
+          <!-- begin functions page -->
+          <div>
+            <h3>Functions page</h3>
+          
+            <h4>purple-trigger</h4>
+
+<pre>
+<code class="code-big">
+  $j('#purple-trigger').on('click', function() {
+    $j('#purple-div').removeClass('bg-purple').addClass('bg-green');
+  });
+</code>
+</pre>
+          
+            <p>
+              The problem just said that you should make the purple div
+              change color &mdash; it didn't specify which color. You might
+              have used a color other than green, and that's fine.  (You could
+              even use the <a href="http://api.jquery.com/css">.css()</a>
+              function to apply your own favorite color.)
+            </p>
+
+            <h4>lavender-trigger</h4>
+
+<pre>
+<code class="code-big">
+  $j('#lavender-trigger').on('click', function() {
+    $j('.lavender-div').removeClass('bg-lavender').addClass('bg-green');
+  });
+</code>
+</pre>
+
+            <p>
+              In the second line, note there's a <code>.</code>, not a
+              <code>#</code>, before <code>lavender-div</code>. (It's a class,
+              not an ID, because we need to apply it to multiple elements on the 
+              page; IDs must be unique.)
+            </p>
+          
+            <h4>trigger-1</h4>
+
+<pre>
+<code class="code-big">
+  $j('#trigger-1').on('click', function() {
+    if ( $j('#trigger-1-target').html().indexOf('orange') > -1 ) {
+      $j('#trigger-1-target').removeClass('bg-purple').addClass('bg-orange');
+    }
+  });
+</code>
+</pre>
+
+            <h4>trigger-2</h4>
+
+<pre>
+<code class="code-big">
+  $j('#trigger-2').on('click', function() {
+    if ( $j('#trigger-2-target').hasClass('bg-purple')) {
+      $j('#trigger-2-target').removeClass('bg-purple').addClass('bg-orange');
+    }
+  });
+</code>
+</pre>
+
+            <h4>trigger-3</h4>
+
+<pre>
+<code class="code-big">
+  $j('#trigger-3').on('click', function() {
+    if ( $j('#trigger-3-target').hasClass('bg-green')) {
+      $j('#trigger-3-target').removeClass('bg-green').addClass('bg-orange');
+    }
+  });
+</code>
+</pre>
+
+            <p>
+              Note that this won't actually do anything. You won't see any
+              errors in your console, but nor will you see a color change, 
+              because the target div isn't green! You can check to make sure
+              your logic is right by throwing in an <code>alert()</code> or
+              <code>console.log()</code> function &mdash; this is a great way
+              to have the computer tell you things when you're writing and
+              debugging programs, though you want to remove them
+              before deploying code to real users. Here's an example - what
+              do you expect to see in the alert that pops up?
+            </p>
+
+<pre>
+<code class="code-big">
+  $j('#trigger-3').on('click', function() {
+    if ( $j('#trigger-3-target').hasClass('bg-green')) {
+      alert("It was green");
+      $j('#trigger-3-target').removeClass('bg-green').addClass('bg-orange');
+    } else {
+      alert("It was not green, so we didn't do anything");
+    }
+  });
+</code>
+</pre>
+
+            <p>
+              Note that I used double quotes in the alert, even though I
+              normally use single quotes, because my quoted string needed
+              to include an apostrophe. Had I used single quotes (aka
+              apostrophes), the program would have perceived my string
+              to terminate when I got to the apostrophe, and then become
+              confused.  With double quotes, it doesn't end the string until
+              we get to the next double quote, so it handles the apostrophe
+              correctly (as a human-readable character inside a string, rather 
+              than as an indication that we've terminated the string).
+            </p>
+
+            <h4>trigger-4</h4>
+
+<pre>
+<code class="code-big">
+  $j('#trigger-4').on('click', function() {
+    $j('.trigger-4').each(function () {
+      if ($j(this).hasClass('bg-green')) {
+        $j(this).removeClass('bg-green').addClass('bg-purple');
+      }
+    });
+  });
+</code>
+</pre>
+
+            <h4>trigger-5</h4>
+
+<pre>
+<code class="code-big">
+  $j('#trigger-5').on('click', function() {
+    $j('.trigger-5').each(function () {
+      if ($j(this).hasClass('bg-green')) {
+        $j('#trigger-5-results-div').append($j(this).html());
+      }
+    });
+  });
+</code>
+</pre>
+
+            <h4>trigger-6</h4>
+
+<pre>
+<code class="code-big">
+  $j('#trigger-6').on('click', function() {
+    $j('.trigger-6').each(function () {
+      if ($j(this).html().indexOf('i') >= 0) {
+        $j('#trigger-6-results-div').append($j(this).html()).append('&lt;br/&gt;');
+      }
+    });
+  });
+</code>
+</pre>
+            <p>
+              And now you know the thing all those names had in common (and
+              none of the other names on the list did) was that they contained
+              an "i".
+            </p>
+            
+            <p>
+              I don't just do this to torment you (although, I mean, bonus),
+              but also because a first step to many real-world problems
+              is <em>figuring out exactly what the problem is</em>. If
+              you write perfectly running code that solves the wrong
+              problem, it doesn't really get you very far!  Determining
+              what the problem is (and, in the case of data-related problems,
+              what properties your data set has) can be subtle.
+            </p>
+            
+            <p>
+              This stage of the problem, by the way, is also one that you
+              can work on productively even if you only have a tiny bit
+              of code knowledge. Having a little insight into what code
+              can do will help you figure out ways of attacking the problem,
+              and will also help you collaborate more effectively with 
+              experienced developers (who may be the ones ultimately 
+              implementing the solution).
+            </p>
+          </div>
+        </div>
+          <!-- end functions page -->
+
+        <!-- end main content div -->
+      </div>
+      <!-- end main row div -->
+    </div>
+    <!-- end main container div -->
+    
+    <!-- begin footer -->
+    <div id="footer" class="bg-neutral">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <p>
+              <a href="http://andromedayelton.com">Andromeda Yelton</a>
+              <span class="glyphicon glyphicon-star"></span>
+              DLF/Code4Lib DC 2014
+              <span class="glyphicon glyphicon-star"></span>
+              <a href="https://github.com/thatandromeda/bootstrap-tutorial/tree/gh-pages">Source files</a> 
+              <span class="glyphicon glyphicon-star"></span> 
+              <a href="http://design-seeds.com/index.php/home/entry/color-abstract1">Color scheme</a>
+              <span class="glyphicon glyphicon-star"></span>
+              <a href="https://api.jquery.com/">jQuery documentation</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end footer -->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  </body>
+</html>
