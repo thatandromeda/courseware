@@ -52,25 +52,7 @@
             </div>
           
             <div class="row">
-              <div class="col-md-4">
-                <div class="well">
-                  <h3 class="no-bar">Code of Conduct</h3>
-
-                  <p>
-                    Here's <a href="http://www.diglib.org/about/code-of-conduct/">
-                    DLF's Code of Conduct</a>, if you'd like to review it.
-                  </p>
-                
-                  <img src="https://adainitiative.org/wp-content/uploads/2011/11/adasticker_text2.png"
-                  class="img-responsive img-thumbnail" />
-                  <p>
-                    Learn more about codes of conduct, their history, and
-                    why they matter from the
-                    <a href="http://adainitiative.org/">Ada Initiative</a>.
-                  </p>
-                </div>
-              </div>
-              <div class="col-md-8">
+              <div class="col-md-12">
                 <div class="well">
                   <h3 class="no-bar">Classroom Rules</h3>
                 
@@ -113,6 +95,47 @@
             </div>
           </div>
           <!-- end classroom rules -->
+
+          <!-- begin objectives -->
+          <div>
+            <h3>Objectives</h3>
+
+            <p>
+              Today, we'll:
+            </p>
+
+            <ul>
+              <li>
+                Learn basic concepts of programming that are common to all programming
+                languages
+              </li>
+              <li>
+                Explore how our web browser's developer tools let us see and change
+                the structure of a web page
+              </li>
+              <li>
+                Get lots of hands-on practice
+              </li>
+              <li>
+                Maybe even see a kitten pic
+              </li>
+            </ul>
+
+            <p>
+              These skills will...
+            </p>
+
+            <ul>
+              <li>
+                Help you learn any programming language (not just JavaScript!)
+              </li>
+              <li>
+                Give you insights into how you can change library web pages with
+                JavaScript - even vendor pages where you can't change the HTML
+              </li>
+            </ul>
+          </div>
+          <!-- end objectives -->
 
           <!-- begin finding dev tools -->
           <div>
@@ -194,8 +217,8 @@
                   <img class="img-responsive img-thumbnail" src="img/screenshot-chrome.png" />
               
                   <p>
-                    The Javascript console is on the Console tab. You can
-                    enter Javascript code by the blue chevron at top 
+                    The JavaScript console is on the Console tab. You can
+                    enter JavaScript code by the blue chevron at top 
                     (<span class="glyphicon glyphicon-chevron-right text-info small"></span>)
                     and see getthe results below it.
                   </p>
@@ -226,8 +249,8 @@
                   <img class="img-responsive img-thumbnail" src="img/screenshot-firefox.png" />
 
                   <p>
-                    The Javascript console is on the Console tab. You can
-                    enter Javascript code by the blue double chevron at bottom
+                    The JavaScript console is on the Console tab. You can
+                    enter JavaScript code by the blue double chevron at bottom
                     (<span class="glyphicon glyphicon-chevron-right text-info small"></span>
                     <span class="glyphicon glyphicon-chevron-right text-info small"></span>)
                     and see the results above it.
@@ -259,7 +282,7 @@
                   <img class="img-responsive img-thumbnail" src="img/screenshot-safari.png" />
               
                   <p>
-                    You can type Javascript code by the little blue chevron at
+                    You can type JavaScript code by the little blue chevron at
                     the bottom (<span class="glyphicon glyphicon-chevron-right text-info small"></span>)
                     and see the results above. You may want to drag
                     the thin grey bar over this area upward to resize it, so that
@@ -290,9 +313,9 @@
                   </p>
 
                   <p>
-                    The Javascript console is on the Console tab (square with
+                    The JavaScript console is on the Console tab (square with
                     a chevron (<span class="glyphicon glyphicon-chevron-right text-info small"></span>) 
-                    in it). You can enter Javascript code by the grey chevron 
+                    in it). You can enter JavaScript code by the grey chevron 
                     at bottom and see the results above it.
                   </p>
                 </div>
@@ -365,7 +388,10 @@
             </p>
             
             <p>
-              <code>var</code> means, "let's define a variable".
+              <code>var</code> means, "let's define a variable". Variables
+              are named containers we can put information into. This lets
+              us store the information for later, when we might need to
+              consult or change it.
             </p>
             
             <p>
@@ -374,14 +400,14 @@
             </p>
             
             <p>
-              <code>jQuery</code> is a library for Javascript.  Javascript
+              <code>jQuery</code> is a library for JavaScript.  JavaScript
               is a programming language that powers a lot of the dynamic
               elements you see on web pages (and increasingly is used to
               power stuff behind the scenes, too).  A library is an
               extension which adds new functions to a language, giving it
               increased functionality or ease of use. jQuery does a couple
               of great things which, in my opinion, make it a good
-              introduction to Javascript:
+              introduction to JavaScript:
             </p>
             
             <ul>
@@ -432,7 +458,7 @@
             
             <p>
               Finally, the <code>;</code> at the end terminates the line.
-              Not all Javascript lines need to end in semicolons, but some
+              Not all JavaScript lines need to end in semicolons, but some
               do, so again, it's easiest to be in the habit of using them
               unless you absolutely mustn't (we'll see an example later).
             </p>
@@ -713,14 +739,11 @@
                   <button id="html-example-2" class="btn btn-lg bg-green">
                     Lorem ipsum dolor sit amet
                     <ul>
-                      <li>
-                        consectetur adipiscing elit
+                      <li>consectetur adipiscing elit
                       </li>
-                      <li>
-                        vestibulum convallis nisi
+                      <li>vestibulum convallis nisi
                       </li>
-                      <li>
-                        at massa euismod ornare
+                      <li>at massa euismod ornare
                       </li>
                     </ul>
                   </button>
@@ -733,11 +756,6 @@
           </div>
           <!-- end selectors and utility functions -->
 
-<!--
-test all the examples (again)
-
-add medium article somewhere
--->
           <!-- begin previous/next buttons -->
           <div>
             <a class="pull-left btn btn-lg prev-next" href="index.html">
@@ -767,9 +785,9 @@ add medium article somewhere
             <p>
               <a href="http://andromedayelton.com">Andromeda Yelton</a>
               <span class="glyphicon glyphicon-star"></span>
-              DLF/Code4Lib DC 2014
+              EDUCAUSE-NERCOMP June 2015
               <span class="glyphicon glyphicon-star"></span>
-              <a href="https://github.com/thatandromeda/bootstrap-tutorial/tree/gh-pages">Source files</a> 
+              <a href="https://github.com/thatandromeda/courseware/tree/gh-pages/Intro-via-jQuery">Source files</a> 
               <span class="glyphicon glyphicon-star"></span> 
               <a href="http://design-seeds.com/index.php/home/entry/color-abstract1">Color scheme</a>
               <span class="glyphicon glyphicon-star"></span>
