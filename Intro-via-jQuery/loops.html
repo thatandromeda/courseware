@@ -391,7 +391,7 @@ applying a jquery function to an entire selector - use same example.
       $j(this).removeClass("bg-yellow").addClass("bg-green");
     } else if ( $j(this).hasClass("bg-green") ) {
       $j(this).removeClass("bg-green").addClass("bg-yellow");
-    };
+    }
   });
 </code>
 </pre>
@@ -439,7 +439,7 @@ applying a jquery function to an entire selector - use same example.
 <pre>
 <code class="code-big">
   $j(".conditional-loops-2").each(function() {
-    if ( $j(this).html().indexOf('kittens') >= 0 ) {
+    if ( $j(this).html().indexOf('kittens') > -1 ) {
       $j(this).addClass("kitten-button");
       $j(this).html(" ");
     }
